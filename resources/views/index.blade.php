@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Macrobyte</title>
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Fira+Sans:600" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('april/dists/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('april/distri/css/style.css')}}">
 	<script src="https://unpkg.com/animejs@2.2.0/anime.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal@4.0.0/dists/scrollreveal.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <style>
         .contenedor:hover .imagen {-webkit-transform:scale(1.3);transform:scale(1.3);}
         .contenedor {overflow:hidden;}
@@ -59,7 +59,7 @@
                             <div class="contenedor">
                                 <a href="#">
 								
-                                    <img src="{{asset('april/dists/images/logo.png')}}" width="80px">
+                                    <img src="{{asset('april/distri/images/logo.png')}}" width="80px">
                                 </a>
                             </div>
                             
@@ -294,7 +294,7 @@
                                      pilares de nuestra organización.</p>
                             </div>
                             <div class="container-sm mx-auto">
-                                <img src="{{asset('april/dists/images/build4k.gif')}}" class="imagencenter" style="position: fixed center" alt="">
+                                <img src="{{asset('april/distri/images/build4k.gif')}}" class="imagencenter" style="position: fixed center" alt="">
 
                             </div>
                             <div class="container-sm">
@@ -409,7 +409,7 @@
 								<div class="testimonial-inner">
 									<div class="testimonial-main">
 										<div class="testimonial-header">
-											<img class="mb-16" src="{{asset('april/dists/images/icon-512x512.png')}}" alt="Testimonial">
+											<img class="mb-16" src="{{asset('april/distri/images/icon-512x512.png')}}" alt="Testimonial">
 										</div>
 										<div class="testimonial-body">
 											<p class="mb-0"><strong>Restonovo</strong> es nuestra primer plataforma moderna hecha 
@@ -432,7 +432,7 @@
 								<div class="testimonial-inner">
 									<div class="testimonial-main">
 										<div class="testimonial-header">
-											<img class="mb-16" src="{{asset('april/dists/images/logo.png')}}" alt="Testimonial">
+											<img class="mb-16" src="{{asset('april/distri/images/logo.png')}}" alt="Testimonial">
 										</div>
 										<div class="testimonial-body">
 											<p class="mb-0"><strong>EduByte</strong> es nuestra plataforma de cursos online destinado a la creacion de contenido util para usuarios que busquen adquirir informacion peculiar y valiosa.
@@ -450,7 +450,7 @@
 								<div class="testimonial-inner">
 									<div class="testimonial-main">
 										<div class="testimonial-header">
-											<img class="mb-16" src="{{asset('april/dists/images/logo.png')}}" alt="Testimonial">
+											<img class="mb-16" src="{{asset('april/distri/images/logo.png')}}" alt="Testimonial">
 										</div>
 										<div class="testimonial-body">
 											<p class="mb-0"><strong>EcoByte</strong> es nuestra plataforma ecommerce para la venta de productos de toda clase, al por mayor o menor, con precios inigualables! 
@@ -488,25 +488,25 @@
                 <div class="site-footer-inner has-top-divider">
                     <div class="brand footer-brand">
                         
-							<img src="{{asset('april/dists/images/logo.png')}}" class="imagenpeq"  alt="">
+							<img src="{{asset('april/distri/images/logo.png')}}" class="imagenpeq"  alt="">
                        
                     </div>
                    
                     <ul class="footer-social-links list-reset">
                         <li>
                             <a href="https://www.facebook.com/macrobyte.tja/">
-                                <img src="{{asset('april/dists/images/facebook.png')}}" class="imagenpeq"  alt="">
+                                <img src="{{asset('april/distri/images/facebook.png')}}" class="imagenpeq"  alt="">
                             </a>
                         </li>
                         <li>
                             <a href="https://api.whatsapp.com/send?phone=59175140175&text=Me%20interesa%20saber%20mas%20de%20MACROBYTE!">
-                                <img src="{{asset('april/dists/images/whatsapp.png')}}" class="imagenpeq"  alt="">
+                                <img src="{{asset('april/distri/images/whatsapp.png')}}" class="imagenpeq"  alt="">
                                
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img src="{{asset('april/dists/images/mensajero.png')}}" class="imagenpeq"   alt="">
+                                <img src="{{asset('april/distri/images/mensajero.png')}}" class="imagenpeq"   alt="">
                                
                             </a>
                         </li>
@@ -539,6 +539,6 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 </script>
-    <script src="{{asset('april/dists/js/main.min.js')}}"></script>
+    <script src="{{asset('april/distri/js/main.min.js')}}"></script>
 </body>
 </html>
