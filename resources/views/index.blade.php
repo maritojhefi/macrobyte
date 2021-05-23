@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Macrobyte</title>
+	<link rel="shortcut icon" href="{{asset('april/distri/images/logo.png')}}" />
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Fira+Sans:600" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('april/distri/css/style.css')}}">
 	<script src="https://unpkg.com/animejs@2.2.0/anime.min.js"></script>
@@ -24,6 +25,10 @@
   margin-left: auto;
   margin-right: auto;
   width: 30%;
+}
+.enlace {
+pointer-events:all;
+cursor: default;
 }
     </style>
 </head>
@@ -422,8 +427,8 @@
 										</div>
 									</div>
 									<div class="testimonial-footer">
-										<div class="testimonial-link">
-											<a href="https://restonovo.site/"  style="color: rgb(255, 123, 0)">Visitar Restonovo</a>
+										<div class="testimonial-link enlace">
+											<a href="https://restonovo.site/"  style="color: rgb(255, 123, 0)">Disponible | En venta.</a><a href="https://restonovo.site"> </a>
 										</div>
 									</div>
 								</div>
