@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/google085c423aaa790337', function () {
+    return view('asd');
+});
