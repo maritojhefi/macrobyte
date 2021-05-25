@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/google085c423aaa790337', function () {
-    return view('asd');
+    return view('google085c423aaa790337');
 });
