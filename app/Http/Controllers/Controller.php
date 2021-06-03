@@ -42,7 +42,7 @@ class Controller extends BaseController
     }
     public function admin(){
 
-        $pasantes= Pasante::all();
+        $pasantes= Pasante::paginate(5);
         
         return view('admin', compact('pasantes'));
     }

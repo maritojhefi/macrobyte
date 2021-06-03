@@ -5,12 +5,12 @@
 <section class="page-content container-fluid">
     <div class="row">
         <div class="col-12">
-           
             <div class="card ">
                
                 <div class="card-body   ">
                     <div  class="dataTables_wrapper container-fluid dt-bootstrap4 ">
-                        
+                        {{$pasantes->links()}}
+
                         <div class="row  table-responsive-md table-responsive-xs">
                             <div class="col-sm-12">
                                 <table id="bs4-table" class="table table-striped table-bordered dataTable" style="width: 100%;" role="grid" aria-describedby="bs4-table_info">
@@ -45,7 +45,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Postulante #{{$pasante->id}}</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true" class="zmdi zmdi-close"></span>
                                             </button>
@@ -85,10 +85,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary btn-outline" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
+                                      
                                     </div>
                                 </div>
                             </div>
