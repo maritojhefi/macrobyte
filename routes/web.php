@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('/google085c423aaa790337', function () {
     return view('google085c423aaa790337');
 });
+
+Route::get('/pasantes', [App\Http\Controllers\Controller::class, 'pasantes'])->name('pasantes');
+Route::post('/formulario', [App\Http\Controllers\Controller::class, 'formulario'])->name('formulario');
+
+

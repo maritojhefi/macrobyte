@@ -1,4 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/jsquantum.js": "/js/jsquantum.js",
+    "/css/cssquantum.css": "/css/cssquantum.css",
+    "/css/cssquantumcliente.css": "/css/cssquantumcliente.css"
 }
