@@ -40,4 +40,10 @@ class Controller extends BaseController
        ]);
        return back()->with('success','Formulario enviado! Ya puede cerrar esta pagina');
     }
+    public function admin(){
+
+        $pasantes= Pasante::all();
+        
+        return view('admin', compact('pasantes'));
+    }
 }
