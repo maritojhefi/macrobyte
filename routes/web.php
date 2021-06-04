@@ -24,5 +24,7 @@ Route::get('/google085c423aaa790337', function () {
 Route::get('/pasantes', [App\Http\Controllers\Controller::class, 'pasantes'])->name('pasantes');
 Route::post('/formulario', [App\Http\Controllers\Controller::class, 'formulario'])->name('formulario');
 Route::get('/admin', [App\Http\Controllers\Controller::class, 'admin'])->name('admin');
+Route::get('/borrarpasante{pasante}', [App\Http\Controllers\Controller::class, 'borrarpasante'])->name('borrarpasante');
+
 
 

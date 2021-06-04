@@ -37,9 +37,9 @@
 
                                 <td>{{$pasante->cedula}}</td>
                                 <td>{{$pasante->telefono}}</td>
-                                <td><button type="button" class="btn btn-accent btn-rounded btn-floating btn-outline" data-toggle="modal" data-target="#exampleModalLong{{$pasante->id}}">
+                                <td><button type="button" class="btn btn-accent btn-sm btn-rounded btn-floating btn-outline" data-toggle="modal" data-target="#exampleModalLong{{$pasante->id}}">
                                     Ver
-                                </button></td>
+                                </button><a href="{{route('borrarpasante',$pasante->id)}}" class="btn btn-danger btn-sm btn-rounded btn-floating text-white">Borrar</a></td>
                             </tr>
                             <div class="modal fade" id="exampleModalLong{{$pasante->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                 <div class="modal-dialog" role="document">

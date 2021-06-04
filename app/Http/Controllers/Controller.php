@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pasante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -70,5 +71,15 @@ class Controller extends BaseController
         $pasantes= Pasante::paginate(5);
         
         return view('admin', compact('pasantes'));
+    }
+    public function borrarpasante(Pasante $pasante){
+        if($pasante->foto)
+        {
+            Storage::disk('public_images')->delete($pasante->foto);
+           
+        }
+     
+        $pasante->delete();
+        return back();
     }
 }
