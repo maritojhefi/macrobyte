@@ -19,7 +19,7 @@ class Controller extends BaseController
     }
     public function formulario(Request $request){
 
-        if($request->image)
+        if($request->imagen)
         {
             $extension= $request->imagen->extension();
             $filename= time().".". $extension;
