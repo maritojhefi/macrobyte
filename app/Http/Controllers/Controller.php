@@ -17,9 +17,9 @@ class Controller extends BaseController
         return view('pasantes');
     }
     public function formulario(Request $request){
-        $extension= $request->imagen->extension();
-       $filename= time().".". $extension;
-       $request->imagen->move(public_path('images'),$filename);
+       // $extension= $request->imagen->extension();
+      // $filename= time().".". $extension;
+      // $request->imagen->move(public_path('images'),$filename);
        //dd($request->lista3);
        Pasante::create([
            'nombre'=>$request->nombre,
@@ -33,7 +33,6 @@ class Controller extends BaseController
            'marketing'=>$request->lista4,
            'edicionvideos'=>$request->lista5,
            'poseecompu'=>$request->computadora,
-           'foto'=>$filename,
            'tarijeno'=>$request->vivetarija,
            'menora25'=>$request->menosde25,
             'practica'=>$request->practica
