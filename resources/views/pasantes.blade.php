@@ -77,7 +77,7 @@
                                                 <div class="file-upload">
                                                     <label for="confirm">Foto actual del rostro</label>
                                                     <label for="subir" class="btn btn-success m-b-0 m-l-5 m-r-5 btn-rounded btn-outline"  data-toggle="tooltip" data-placement="top" data-original-title="Subir una nueva foto"><span class="material-icons">file_upload</span></label>
-                                                    <input id="subir" class="form-control file-upload__input required" type="file" name="imagen">
+                                                    <input id="subir" class="form-control file-upload__input" type="file" name="imagen">
                                                 </div>
                                             
                                             <div id="vistazo" class=" card-img img-fluid mb-4" style="width:50px"></div>
