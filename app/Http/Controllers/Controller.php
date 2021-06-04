@@ -38,7 +38,6 @@ class Controller extends BaseController
                 'poseecompu'=>$request->computadora,
                 'foto'=>$filename,
                 'tarijeno'=>$request->vivetarija,
-                'menora25'=>$request->menosde25,
                  'practica'=>$request->practica
             ]);
         }
@@ -57,7 +56,6 @@ class Controller extends BaseController
                 'edicionvideos'=>$request->lista5,
                 'poseecompu'=>$request->computadora,
                 'tarijeno'=>$request->vivetarija,
-                'menora25'=>$request->menosde25,
                  'practica'=>$request->practica
             ]);
         }

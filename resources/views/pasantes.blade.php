@@ -135,10 +135,7 @@
                                                 <input type="checkbox" class="custom-control-input " id="acceptTerms2" name="vivetarija">
                                             <label class="custom-control-label" for="acceptTerms2">Vivo en Tarija-Bolivia</label>
                                             </div>
-                                            <div class="custom-control custom-checkbox checkbox-primary form-check">
-                                                <input type="checkbox" class="custom-control-input " id="acceptTerms3" name="menosde25">
-                                            <label class="custom-control-label" for="acceptTerms3">Tengo menos de 25 años</label>
-                                            </div>
+                                            
                                             <div class="custom-control custom-checkbox checkbox-primary form-check">
                                                 <input type="checkbox" class="custom-control-input " id="acceptTerms4" name="practica">
                                             <label class="custom-control-label" for="acceptTerms4">Requiero hacer practicas profesionales para terminar mis estudios</label>

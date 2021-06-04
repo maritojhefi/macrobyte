@@ -73,7 +73,6 @@
                                                         <li class="text-muted"><strong>Posee Computadora?: </strong><span class="m-l-15">{{$pasante->poseecompu=='on'? 'SI':'NO'}}</span></li>
                                                         <li class="text-muted"><strong>Vive en Tarija?: </strong><span class="m-l-15">{{$pasante->tarijeno=='on'? 'SI':'NO'}}</span></li>
                                                         <li class="text-muted"><strong>Desea hacer practicas?: </strong><span class="m-l-15">{{$pasante->practica=='on'? 'SI':'NO'}}</span></li>
-                                                        <li class="text-muted"><strong>Es menor de 25?: </strong><span class="m-l-15">{{$pasante->menora25=='on'? 'SI':'NO'}}</span></li>
 
                                                     </ul>
                                                     <div class="card bg-primary text-center p-3">
