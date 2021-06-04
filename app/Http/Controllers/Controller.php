@@ -17,27 +17,52 @@ class Controller extends BaseController
         return view('pasantes');
     }
     public function formulario(Request $request){
-        $extension= $request->imagen->extension();
-       $filename= time().".". $extension;
-       $request->imagen->move(public_path('images'),$filename);
+
+        if($request->image)
+        {
+            $extension= $request->imagen->extension();
+            $filename= time().".". $extension;
+            $request->imagen->move(public_path('images'),$filename);
+            Pasante::create([
+                'nombre'=>$request->nombre,
+                'cedula'=>$request->cedula,
+                'telefono'=>$request->telefono,
+                'nacimiento'=>$request->fecha,
+                'estudios'=>$request->estudios,
+                'photoshop'=>$request->lista1,
+                'office'=>$request->lista2,
+                'redes'=>$request->lista3,
+                'marketing'=>$request->lista4,
+                'edicionvideos'=>$request->lista5,
+                'poseecompu'=>$request->computadora,
+                'foto'=>$filename,
+                'tarijeno'=>$request->vivetarija,
+                'menora25'=>$request->menosde25,
+                 'practica'=>$request->practica
+            ]);
+        }
+        else
+        {
+            Pasante::create([
+                'nombre'=>$request->nombre,
+                'cedula'=>$request->cedula,
+                'telefono'=>$request->telefono,
+                'nacimiento'=>$request->fecha,
+                'estudios'=>$request->estudios,
+                'photoshop'=>$request->lista1,
+                'office'=>$request->lista2,
+                'redes'=>$request->lista3,
+                'marketing'=>$request->lista4,
+                'edicionvideos'=>$request->lista5,
+                'poseecompu'=>$request->computadora,
+                'tarijeno'=>$request->vivetarija,
+                'menora25'=>$request->menosde25,
+                 'practica'=>$request->practica
+            ]);
+        }
+      
        //dd($request->lista3);
-       Pasante::create([
-           'nombre'=>$request->nombre,
-           'cedula'=>$request->cedula,
-           'telefono'=>$request->telefono,
-           'nacimiento'=>$request->fecha,
-           'estudios'=>$request->estudios,
-           'photoshop'=>$request->lista1,
-           'office'=>$request->lista2,
-           'redes'=>$request->lista3,
-           'marketing'=>$request->lista4,
-           'edicionvideos'=>$request->lista5,
-           'poseecompu'=>$request->computadora,
-           'foto'=>$filename,
-           'tarijeno'=>$request->vivetarija,
-           'menora25'=>$request->menosde25,
-            'practica'=>$request->practica
-       ]);
+      
        return back()->with('success','Formulario enviado! Ya puede cerrar esta pagina');
     }
     public function admin(){
