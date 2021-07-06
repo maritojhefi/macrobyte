@@ -30,6 +30,18 @@
 pointer-events:all;
 cursor: default;
 }
+
+.button {
+    background-color: #2a78d1; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	
+}
     </style>
 </head>
 <body class="is-boxed has-animations">
@@ -81,7 +93,7 @@ cursor: default;
 						<div class="hero-copy">
 	                        <h1 class="hero-title mt-0">MACROBYTE</h1>
 	                        <p class="hero-paragraph"> Desarrollo web y redes informaticas.</p>
-							
+							<a class="button" href="{{route('login')}}"><label for="" style="color: white">Inicia Sesion</label> </a>
 						</div>
 						<div class="hero-illustration">
 							<div class="hero-shape hero-shape-1">

@@ -1,74 +1,41 @@
-@if(auth()->user()->rol->nombre!='mesero')
+
 <aside class="sidebar sidebar-left">
     <div class="sidebar-content">
         <nav class="main-menu">
             <ul class="nav metismenu">
                 <li class="sidebar-header"><span>MENU</span></li>
                 
-                <li class="nav-dropdown">
-                    <a class="has-arrow" href="#" aria-expanded="false" ><i class="la la-building"></i><span>Empresa</span></a>
-                    <ul class="collapse  nav-sub" aria-expanded="false"  id="collapseExample">
-                        <li><a href="{{route('inicio')}}"><span>Principal</span></a></li>
-                        <li><a href="{{route('configuracion')}}"><span>Ajustes</span></a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown">
-                    <a class="has-arrow" data-toggle="dropdown" href="#" aria-expanded="false"><i class="zmdi zmdi-shield-check zmdi-hc-fw"></i><span>Administrador</span></a>
-                    <ul class="collapse {{ Request::path()=='dashboard/usuario' ? 'in':''}} {{ Request::path()=='mesas' ? 'in':''}} nav-sub" aria-expanded="true">
-                        <li class="{{ Request::path()=='dashboard/usuario' ? 'active':''}}"><a href="{{route('usuario.index')}}" ><span>Usuarios</span></a></li>
-                        <li class="{{ Request::path()=='mesas' ? 'active':''}}"><a href="{{route('mesa.index')}}"><span>Mesas</span></a></li>
-                        <li class="{{ Request::path()=='roles' ? 'active':''}}"><a href="{{route('rol.index')}}"><span>Roles</span></a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown">
-                    <a class="has-arrow" data-toggle="dropdown" href="#" aria-expanded="false"><i class="zmdi zmdi-input-composite zmdi-hc-fw"></i><span>Perifericos</span></a>
-                    <ul class="collapse {{ Request::path()=='usuarios' ? 'in':''}} {{ Request::path()=='mesas' ? 'in':''}} nav-sub" aria-expanded="true">
-                        <li class="{{ Request::path()=='usuarios' ? 'active':''}}"><a href="{{route('nuevotoken')}}" ><span>Agregar token de spotify</span></a></li>
-                        <li class="{{ Request::path()=='mesas' ? 'active':''}}"><a href="{{route('selecimpresora')}}"><span>Seleccionar impresora</span></a></li>
-                        <li class="{{ Request::path()=='roles' ? 'active':''}}"><a href="{{route('selecreproductor')}}"><span>Seleccionar reproductor</span></a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown ">
-                    <a class="has-arrow" href="#" aria-expanded="false"><i class="zmdi zmdi-shopping-cart zmdi-hc-fw"></i><span>Productos</span></a>
-                    <ul class="collapse nav-sub" aria-expanded="false">
-                        <li class=""><a href="{{route('producto.index')}}"><span>Bebidas y Platillos</span></a></li>
-                        <li><a href="{{route('categoria.index')}}"><span>Categorias</span></a></li>
-                        
-                    </ul>
+               
+                <li class="nav-dropdown {{ Request::path()=='empresa' ? 'active':''}}">
+                    <a href="{{route('control')}}"><i class="la la-building"></i><span>Empresa</span></a>
                 </li>
                
-                <li class="nav-dropdown">
-                    <a class="has-arrow" href="#" aria-expanded="false"><i class="zmdi zmdi-chart zmdi-hc-fw"></i><span>Venta Diaria</span></a>
-                    <ul class="collapse nav-sub" aria-expanded="true">
-                        <li><a href="{{route('cuentasActivas')}}"><span>Cuentas Activas</span></a></li>
-                        <li><a href="{{route('meserosactivos')}}"><span>Meseros Activos</span></a></li>
-                        <li><a href="{{route('cajaactiva')}}"><span>Caja diaria</span></a></li>
-                    </ul>
+               
+                <li class="nav-dropdown {{ Request::path()=='control' ? 'active':''}}">
+                    <a href="{{route('control')}}"><i class="zmdi zmdi-hourglass-alt zmdi-hc-fw"></i><span>Control Pasantes</span></a>
                 </li>
-                <li class="nav-dropdown">
-                    <a class="has-arrow" href="#" aria-expanded="false"><i class="zmdi zmdi-store zmdi-hc-fw"></i><span>Almacen</span></a>
-                    <ul class="collapse nav-sub" aria-expanded="true">
-                        <li><a href="{{route('stock')}}"><span>Stock de productos</span></a></li>
-                        <li><a href="javascript:void(0)"><span>Meseros Activos</span></a></li>
-                        <li><a href="javascript:void(0)"><span>Caja diaria</span></a></li>
-                    </ul>
+                <li class="nav-dropdown {{ Request::path()=='usuario' ? 'active':''}}">
+                    <a href="{{route('usuario.index')}}"><i class="zmdi zmdi-shield-security zmdi-hc-fw"></i><span>Usuarios</span></a>
                 </li>
-                <li class="nav-dropdown">
-                    <a class="has-arrow" href="#" aria-expanded="false"><i class="la la-bar-chart-o"></i><span>Reportes</span></a>
-                    <ul class="collapse nav-sub" aria-expanded="true">
-                        <li><a href="javascript:void(0)"><span>Ventas</span></a></li>
-                        <li><a href="javascript:void(0)"><span>Compras</span></a></li>
-                        <li><a href="javascript:void(0)"><span>Meseros</span></a></li>
-                    </ul>
+                <li class="nav-dropdown {{ Request::path()=='proyecto' ? 'active':''}}">
+                    <a href="{{route('proyecto.index')}}"><i class="la la-diamond"></i><span>Proyectos</span></a>
                 </li>
-                <li class="nav-dropdown">
-                    <a href="https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Frestonovo.site%2Fdashboard%2Frockola%2Fcallback" aria-expanded="false"><i class="la la-key"></i><span>Crear Token Spotify</span></a>
+                <li class="nav-dropdown {{ Request::path()=='producto' ? 'active':''}}">
+                    <a href="{{route('producto.index')}}"><i class="la la-diamond"></i><span>Productos</span></a>
                 </li>
-              
+                <li class="nav-dropdown {{ Request::path()=='compra' ? 'active':''}}">
+                    <a href="{{route('proyecto.index')}}"><i class="la la-diamond"></i><span>Compras</span></a>
+                </li>
+                <li class="nav-dropdown {{ Request::path()=='venta' ? 'active':''}}">
+                    <a href="{{route('proyecto.index')}}"><i class="la la-diamond"></i><span>Ventas</span></a>
+                </li>
+                <li class="nav-dropdown {{ Request::path()=='cotizacion' ? 'active':''}}">
+                    <a href="{{route('cotizacion.index')}}"><i class="la la-diamond"></i><span>Cotizaciones</span></a>
+                </li>
             </ul>
         </nav>
     </div>
 </aside>
-      @endif
+     
 
     

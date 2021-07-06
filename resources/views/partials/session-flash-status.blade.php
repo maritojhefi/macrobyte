@@ -1,6 +1,6 @@
 
     @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert" id="contenido">
+    <div class="alert alert-success alert-rounded alert-dismissible fade show  mt-2" role="alert" id="contenido">
         <strong><span class="material-icons">
             done
             </span> 
@@ -13,7 +13,7 @@
     </div>
     @endif
     @if (session('info'))
-    <div class="alert alert-info alert-rounded alert-dismissible fade show" role="alert" id="contenido">
+    <div class="alert alert-info alert-rounded alert-dismissible fade show  mt-2" role="alert" id="contenido">
         <strong><span class="material-icons">
             info
             </span> 
@@ -26,11 +26,24 @@
     </div>
 @endif
 @if (session('danger'))
-<div class="alert alert-danger alert-rounded alert-dismissible fade show" role="alert" id="contenido">
+<div class="alert alert-danger alert-rounded alert-dismissible fade show  mt-2" role="alert" id="contenido">
     <strong> <span class="material-icons">
         new_releases
         </span> 
     </strong> {{session('danger')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span class="material-icons">
+        close
+        </span>
+    </button>
+</div>
+@endif
+@if (session('warning'))
+<div class="alert alert-warning alert-rounded alert-dismissible fade show mt-2" role="alert" id="contenido">
+    <strong> <span class="material-icons">
+        new_releases
+        </span> 
+    </strong> {{session('warning')}}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span class="material-icons">
         close
