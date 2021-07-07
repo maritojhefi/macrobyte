@@ -1,5 +1,5 @@
 <div>
-    <div class="modal fade" id="modalformulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalFixedHeightTitle" aria-hidden="true" data-modal="scroll">
+    <div class="modal fade  " id="modalformulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalFixedHeightTitle" aria-hidden="true" data-modal="scroll">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -8,6 +8,7 @@
                         <span aria-hidden="true" class="zmdi zmdi-close"></span>
                     </button>
                 </div>
+                
                 <form action="{{route($ruta)}}" class="" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                   

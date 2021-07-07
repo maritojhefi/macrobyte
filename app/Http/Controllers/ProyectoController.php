@@ -15,7 +15,8 @@ class ProyectoController extends Controller
 
     public function index(){
         $proyectos=Proyecto::paginate(5);
-        return view('proyectos.index',compact('proyectos'));
+        $total=$proyectos->total();
+        return view('proyectos.index',compact('proyectos','total'));
  
     }
     public function create(ProyectoRequestCreate $request){

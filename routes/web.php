@@ -55,7 +55,33 @@ Route::delete('/producto/eliminar/{producto}',  [App\Http\Controllers\ProductoCo
 Route::get('/producto/editar/{producto}',  [App\Http\Controllers\ProductoController::class, 'edit'])->name('producto.edit');
 
  //cotizaciones
+ Route::get('/cotizacion/crear', [App\Http\Controllers\CotizacionController::class, 'create'])->name('cotizacion.create');
  Route::get('/cotizacion', [App\Http\Controllers\CotizacionController::class, 'index'])->name('cotizacion.index');
+ Route::get('/cotizar/vista',  [App\Http\Controllers\CotizacionController::class, 'vistaprevia'])->name('cotizacion.vista');
+
+//empresa
+Route::get('/empresa', [App\Http\Controllers\EmpresaController::class, 'info'])->name('empresa.info');
+
+//musica
+Route::get('/musica', [App\Http\Controllers\MusicaController::class, 'index'])->name('musica.index');
+Route::get('/actual', [App\Http\Controllers\MusicaController::class, 'actual'])->name('musica.actual');
+Route::get('/musica/callback', [App\Http\Controllers\MusicaController::class, 'callback'])->name('musica.token');
+
+
+//pagos online
+Route::get('/pago', [App\Http\Controllers\PagoController::class, 'index'])->name('pago.index');
+
+//ventas
+Route::get('/venta', [App\Http\Controllers\VentaController::class, 'index'])->name('venta.index');
+
+//compras
+Route::get('/compra', [App\Http\Controllers\CompraController::class, 'index'])->name('compra.index');
+
+
+
+//inventarios
+Route::get('/inventario', [App\Http\Controllers\InventarioController::class, 'index'])->name('inventario.index');
+
 
 Auth::routes();
 
@@ -64,7 +90,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/facturar', [App\Http\Controllers\HomeController::class, 'facturar'])->name('home');
 
 
-/*Route::get('{any}', function () {
-    return view('layouts.app');
-})->where('any', '.*');*/
+
 

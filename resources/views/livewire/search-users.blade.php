@@ -1,5 +1,5 @@
 <div>
-@include('partials.session-flash-status')
+
 
     <div class="card ">
         
@@ -89,7 +89,7 @@
         <div class="dataTables_info" id="bs4-table_info" role="status" aria-live="polite">Mostrando {{$productos->count()}} usuarios</div>
     </div>
     <div class="row">
-        <div class="btn btn-sm">
+        <div class="btn btn-sm m-2">
             {{$productos->links()}}
     </div>
 </div>

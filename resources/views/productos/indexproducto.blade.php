@@ -13,4 +13,6 @@
     </section>
     <x-modal-form-create :lista="(['nombre'=>'text','codigo Barra'=>'text','imagen'=>'file','codigo Producto'=>'textarea'])" ruta="producto.create"/>
       
+
+       
         @endsection

@@ -1,5 +1,5 @@
 <div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-12 mt-2">
         <div class="card">
             <h5 class="card-header">Formulario</h5>
             <div class="card-body">

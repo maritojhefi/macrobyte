@@ -24,7 +24,8 @@
 <body class="content-menu  ">
 	@hasSection ('login')
 	@yield('login')
-	@else
+	@endif
+	@hasSection('content')
 	<div id="">
 		<!-- TOP TOOLBAR WRAPPER -->
 		@include('partials.navmobile')
@@ -52,7 +53,37 @@
 					</aside>
 			</div>
 		</div>
+		@endif
+		@hasSection ('content-music')
+		
+		<div id="">
+			<!-- TOP TOOLBAR WRAPPER -->
+			@include('partials.navmobile')
+			@include('partials.nav')
+	
+			<!-- END TOP TOOLBAR WRAPPER -->
+				<div class="content-wrapper">
+					<!-- MENU SIDEBAR WRAPPER -->
+					@include('partials.sidebar')
+					<div class="content" data-layout="tabbed">
+						
+						@yield('content-music')
+					</div>
+				
+					<!-- SIDEBAR QUICK PANNEL WRAPPER -->
+						<aside class="sidebar sidebar-right">
+								<div class="sidebar-content">
+									<div class="tab-panel m-b-30" id="sidebar-tabs">
+																					
+								   </div>
+							</div>
+						</aside>
+				</div>
+			</div>
+			
+		
 	@endif
+
 	@livewireScripts
 		<script src="{{asset('dashboard/vendor/modernizr/modernizr.custom.js')}}"></script>
 	<script src="{{asset('dashboard/vendor/jquery/dist/jquery.min.js')}}"></script>

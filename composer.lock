@@ -4,8 +4,91 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc3137bb6ef1603957fff2c195239afe",
+    "content-hash": "db309b3f18d4fc88236088fb2f1e4d0b",
     "packages": [
+        {
+            "name": "aerni/laravel-spotify",
+            "version": "v1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aerni/laravel-spotify.git",
+                "reference": "3c7d96dc094e9ec9a9146b35b589c0f04f9fa30c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aerni/laravel-spotify/zipball/3c7d96dc094e9ec9a9146b35b589c0f04f9fa30c",
+                "reference": "3c7d96dc094e9ec9a9146b35b589c0f04f9fa30c",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.5|^7.0",
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^5.0",
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Aerni\\Spotify\\Providers\\SpotifyClientServiceProvider",
+                        "Aerni\\Spotify\\Providers\\SpotifyServiceProvider"
+                    ],
+                    "aliases": {
+                        "SpotifyClient": "Aerni\\Spotify\\Facades\\SpotifyClientFacade",
+                        "Spotify": "Aerni\\Spotify\\Facades\\SpotifyFacade",
+                        "SpotifySeed": "Aerni\\Spotify\\Facades\\SpotifySeedFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aerni\\Spotify\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Aerni",
+                    "email": "hello@michaelaerni.ch",
+                    "homepage": "https://www.michaelaerni.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel wrapper for the Spotify Web API",
+            "homepage": "https://github.com/aerni/laravel-spotify",
+            "keywords": [
+                "Album",
+                "Artists",
+                "albums",
+                "api",
+                "artist",
+                "browse",
+                "laravel",
+                "music",
+                "playlist",
+                "playlists",
+                "search",
+                "songs",
+                "spotify",
+                "spotify-api",
+                "spotify-web-api",
+                "track",
+                "tracks",
+                "wrapper"
+            ],
+            "support": {
+                "issues": "https://github.com/aerni/laravel-spotify/issues",
+                "source": "https://github.com/aerni/laravel-spotify/tree/v1.6.1"
+            },
+            "time": "2021-01-02T15:06:29+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",
@@ -2079,6 +2162,52 @@
                 }
             ],
             "time": "2020-07-20T17:29:33+00:00"
+        },
+        {
+            "name": "printnode/printnode-php",
+            "version": "2.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PrintNode/PrintNode-PHP.git",
+                "reference": "db904ff59438ec630be9bd51a545552d749483b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PrintNode/PrintNode-PHP/zipball/db904ff59438ec630be9bd51a545552d749483b3",
+                "reference": "db904ff59438ec630be9bd51a545552d749483b3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PrintNode\\": "src/PrintNode"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Contributors",
+                    "email": "support@printnode.com",
+                    "homepage": "https://www.printnode.com"
+                }
+            ],
+            "description": "Connect any printer to your application with PrintNode Client and easy to use JSON API",
+            "homepage": "https://github.com/PrintNode/PrintNode-PHP",
+            "keywords": [
+                "PrintNode",
+                "api",
+                "php",
+                "printing"
+            ],
+            "support": {
+                "issues": "https://github.com/PrintNode/PrintNode-PHP/issues",
+                "source": "https://github.com/PrintNode/PrintNode-PHP/tree/2.0.0-rc1"
+            },
+            "time": "2015-10-26T17:05:04+00:00"
         },
         {
             "name": "psr/container",
@@ -8073,7 +8202,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "printnode/printnode-php": 5
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

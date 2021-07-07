@@ -21,7 +21,7 @@ class EditProduct extends Component
     }
     public function render()
     {
-        session()->flash('message', 'Post successfully updated.');
+        
         return view('livewire.edit-product', ['producto'=>$this->producto])
         ->extends('asistencia.master')
         ->section('section');
