@@ -85,7 +85,7 @@ $headers = array(
 );
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
-$data = "grant_type=authorization_code&code=".$onlycode[0]."&redirect_uri=https%3A%2F%2Fmacrobyte.test%2Fmusica%2Fcallback";
+$data = "grant_type=authorization_code&code=".$onlycode[0]."&redirect_uri=https%3A%2F%2Fmacrobyte.site%2Fmusica%2Fcallback";
 
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
