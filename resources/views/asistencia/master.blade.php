@@ -18,6 +18,7 @@
 
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/material-design-iconic-font.min.css")}}">
 	<script type="text/javascript" src="{{asset("dashboard/vendor/jquery/dist/jquery.min.js")}}"></script>
+	@laravelPWA
 	@livewireStyles
 </head>
 
