@@ -103,6 +103,8 @@ $token_refresh=explode('"',$devolucion[3]);
 Spotify_token::truncate();
         Spotify_token::create([
             'token'=> $token[0],
+            'user_id'=>auth()->user()->id,
+
         ]);
         
         
