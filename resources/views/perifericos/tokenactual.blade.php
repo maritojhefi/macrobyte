@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputHelp1">Creado por</label>
-                                    <input type="text" class="form-control" disabled=""  value="{{$token->user_id}}">
+                                    <input type="text" class="form-control" disabled=""  value="{{$token->user->name}}">
                                     <small id="textHelp1" class="form-text text-muted"> <i class="font-size-22 v-align-middle zmdi zmdi-time-interval zmdi-hc-fw"></i> Hace {{$diferencia}} minutos</small>
                                 </div>
                                 

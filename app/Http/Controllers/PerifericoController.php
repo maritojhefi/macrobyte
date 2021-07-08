@@ -85,7 +85,8 @@ class PerifericoController extends Controller
         Play_device::create([
             'nombre'=>$request->nombre,
             'id_reproductor'=>$request->idrep,
-            'estado'=>'activo'
+            'estado'=>'activo',
+            'user_id'=>auth()->user()->id,
         ]);
         return back()->with('success',$request->nombre.' es ahora el reproductor activo!');
     }

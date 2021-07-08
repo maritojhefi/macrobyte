@@ -11,4 +11,9 @@ class Spotify_token extends Model
     protected $fillable = [
         'token','user_id',
      ];
+
+     public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\Play_device;
 use Illuminate\Support\Str;
 use App\Models\Spotify_token;
+use Illuminate\Support\Facades\Http;
 
 class BuscarMusica extends Component
 {
@@ -39,7 +40,7 @@ class BuscarMusica extends Component
            }
            else
            {
-              
+              dd(response($agregaracola));
                session()->flash('danger', 'Error de token, genere uno nuevo!');
            }
        }

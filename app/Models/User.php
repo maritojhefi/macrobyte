@@ -49,4 +49,8 @@ class User extends Authenticatable
     {
         $this->attributes["password"]=Hash::make($value);
     }
+    public function tokens()
+    {
+        return $this->hasMany(Spotify_token::class);
+    }
 }
