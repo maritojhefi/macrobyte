@@ -40,7 +40,7 @@ class BuscarMusica extends Component
            }
            else
            {
-              dd(response($agregaracola));
+             
                session()->flash('danger', 'Error de token, genere uno nuevo!');
            }
        }
