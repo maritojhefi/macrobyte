@@ -14,7 +14,7 @@
                         <div class="col">
                             <div class="m-l-10">
                                 <h6 class="card-title m-0"><a class="text-dark">{{$cancion['nombre']}}</a></h6>
-                                <small class="card-text">{{$cancion['artista']}}</small>
+                                <small class="card-text">{{$cancion['artista']}}</small> <br>
                                 <a href="#" wire:click="add('{{ $cancion['uri'] }}')">  <small class="text-muted"><span class="badge badge-pill badge-accent"><i class="font-size-22 zmdi zmdi-plus-circle zmdi-hc-fw text-white"></i>Añadir</span></small> </a> <br>
 
                             </div>
