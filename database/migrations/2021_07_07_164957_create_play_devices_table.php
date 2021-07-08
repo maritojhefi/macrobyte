@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpotifyTokensTable extends Migration
+class CreatePlayDevicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateSpotifyTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('spotify_tokens', function (Blueprint $table) {
+        Schema::create('play_devices', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->string('token', 500);
+            $table->string('nombre', 100)->nullable();
+            $table->string('id_reproductor', 100)->nullable();
+            $table->string('estado', 100)->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateSpotifyTokensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spotify_tokens');
+        Schema::dropIfExists('play_devices');
     }
 }

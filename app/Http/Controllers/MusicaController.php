@@ -162,19 +162,19 @@ public function agregaracola(Request $request)
            }
            else
            {
-               return back()->with('danger','Error de token, notifique al administrador!');
+               return back()->with('danger','Error de token, genere otro!');
    
            }
        }
        else
        {
-           return back()->with('danger','No se encuentra habilitada la rockola');
+           return back()->with('danger','No existe token, genere uno nuevo en perifericos');
    
        }
     }
     else
     {
-        return back()->with('danger','No se habilito el reproductor, por favor notifique al administrador');
+        return back()->with('danger','No se habilito el reproductor, seleccione uno en perifericos');
     }
     
   

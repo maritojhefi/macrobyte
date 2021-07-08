@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Spotify_token extends Model
+class Play_device extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'token','user_id',
-     ];
+        'nombre','id_reproductor','estado'
+    ];
 }

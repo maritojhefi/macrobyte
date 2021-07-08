@@ -82,6 +82,13 @@ Route::get('/compra', [App\Http\Controllers\CompraController::class, 'index'])->
 //inventarios
 Route::get('/inventario', [App\Http\Controllers\InventarioController::class, 'index'])->name('inventario.index');
 
+//perifericos
+Route::get('/periferico', [App\Http\Controllers\PerifericoController::class, 'index'])->name('periferico.index');
+Route::get('/periferico/reproductor', [App\Http\Controllers\PerifericoController::class, 'reproductores'])->name('periferico.reproductores');
+Route::get('/periferico/historial', [App\Http\Controllers\PerifericoController::class, 'historial'])->name('periferico.historial');
+Route::get('/periferico/token', [App\Http\Controllers\PerifericoController::class, 'token'])->name('periferico.token');
+Route::post('/periferico/activarreproductor', [App\Http\Controllers\PerifericoController::class, 'activarreproductor'])->name('activarreproductor');
+
 
 Auth::routes();
 

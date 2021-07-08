@@ -29,9 +29,10 @@
             </ul>
         </div>
     </header>
-    @include('partials.session-flash-status')
-	@include('partials.validation-error')
+    
     <section class="container m-t-30">
+        @include('partials.session-flash-status')
+	@include('partials.validation-error')
         <!-- ROW -->
         <div class="row">
             <!-- COLUMN -->
@@ -39,7 +40,7 @@
                 <!-- TAB CONTENT -->
                 <div class="tab-content">
                     <div wire:loading class="alert alert-primary alert-dismissible fade show col-12" role="alert">
-                        <strong>Cargando..!</strong> 
+                        <strong><i class="la la-hourglass-half text-white"></i>Cargando..!</strong> 
                        
                     </div>
                     <div class="tab-pane fadeIn" id="tab-1">
