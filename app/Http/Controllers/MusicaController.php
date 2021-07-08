@@ -99,7 +99,7 @@ $devolucion=explode('":"',$resp);
 $token=explode('"',$devolucion[1]);
 
 $token_refresh=explode('"',$devolucion[3]);
-
+dd($token);
 Spotify_token::truncate();
         Spotify_token::create([
             'token'=> $token[0],
