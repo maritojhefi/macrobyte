@@ -148,8 +148,11 @@ class BuscarMusica extends Component
             break;
            }
            $uri=$tema['uri'];
-          
-           $listafiltrada->push(['nombre'=>Str::limit($nombre, 40),'artista'=>Str::limit($artista, 50),'uri'=>$uri,'foto'=>$foto]);
+          $nombreprocesado=Str::limit($nombre, 40);
+          $nombreprocesado=str_replace("'","",$nombreprocesado);
+          $artistaprocesado=Str::limit($artista, 50);
+          $artistaprocesado=str_replace("'","",$artistaprocesado);
+           $listafiltrada->push(['nombre'=>$nombreprocesado,'artista'=>$artistaprocesado,'uri'=>$uri,'foto'=>$foto]);
            $contador=$contador+1;
          }
         }
