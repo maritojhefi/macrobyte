@@ -34,8 +34,8 @@
                     <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="icon dripicons-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Page Layouts</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Left Sidebar</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">{{env('APP_NAME')}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{Request::path()}}</li>
                         </ol>
                     </nav>
                 </div>

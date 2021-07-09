@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePagoOnlinesTable extends Migration
+class CreatePagosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreatePagoOnlinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pago_onlines', function (Blueprint $table) {
+        Schema::create('pagos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre', 100)->nullable();
+            $table->integer('monto')->unsigned()->nullable();
+            $table->string('tipo', 100)->nullable();
+            
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreatePagoOnlinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pago_onlines');
+        Schema::dropIfExists('pagos');
     }
 }

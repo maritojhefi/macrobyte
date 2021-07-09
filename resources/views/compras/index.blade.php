@@ -1,5 +1,11 @@
 @extends('asistencia.master')
 @section('content')
+<x-cabecera-pagina titulo="Compras">
+    <x-boton-opciones>
+        
+    </x-boton-opciones>
+</x-cabecera-pagina>
+<br>
 <div class="col-md-6">
     <div class="card">
         <h5 class="card-header">Rounded Input Style</h5>

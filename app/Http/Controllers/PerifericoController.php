@@ -71,11 +71,19 @@ class PerifericoController extends Controller
     }
     public function token(){
         $token=Spotify_token::first();
-        $creacion=$token->created_at;
-        $tiempoactual=Carbon::now();
-        $diferencia= $creacion->diffInMinutes($tiempoactual);
-        
-        return view('perifericos.tokenactual',compact('token','diferencia'));
+        if($token)
+        {
+            $creacion=$token->created_at;
+            $tiempoactual=Carbon::now();
+            $diferencia= $creacion->diffInMinutes($tiempoactual);
+            
+            return view('perifericos.tokenactual',compact('token','diferencia'));
+        }
+        else
+        {
+            return back()->with('danger','No hay ningun token guardado');
+        }
+       
     }
 
     public function activarreproductor(Request $request)

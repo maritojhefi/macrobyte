@@ -59,6 +59,11 @@ Route::get('/producto/editar/{producto}',  [App\Http\Controllers\ProductoControl
  Route::get('/cotizacion', [App\Http\Controllers\CotizacionController::class, 'index'])->name('cotizacion.index');
  Route::get('/cotizar/vista',  [App\Http\Controllers\CotizacionController::class, 'vistaprevia'])->name('cotizacion.vista');
 
+ //roles
+ Route::get('/rol',  [App\Http\Controllers\RolController::class, 'index'])->name('rol.index');
+ Route::post('/rol/create',  [App\Http\Controllers\RolController::class, 'create'])->name('rol.create');
+ Route::delete('/rol/eliminar/{rol}',  [App\Http\Controllers\RolController::class, 'delete'])->name('rol.delete');
+
 //empresa
 Route::get('/empresa', [App\Http\Controllers\EmpresaController::class, 'info'])->name('empresa.info');
 
@@ -70,6 +75,8 @@ Route::get('/musica/callback', [App\Http\Controllers\MusicaController::class, 'c
 
 //pagos online
 Route::get('/pago', [App\Http\Controllers\PagoController::class, 'index'])->name('pago.index');
+Route::post('/crear', [App\Http\Controllers\PagoController::class, 'create'])->name('pago.create');
+Route::get('/pago/{pago}', [App\Http\Controllers\PagoController::class, 'editar'])->name('pago.editar');
 
 //ventas
 Route::get('/venta', [App\Http\Controllers\VentaController::class, 'index'])->name('venta.index');

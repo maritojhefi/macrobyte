@@ -20,7 +20,7 @@ class CreateEmpresasTable extends Migration
             $table->string('nit', 100)->nullable();
             $table->string('telefono', 100)->nullable();
             $table->string('correo', 100)->nullable();
-            
+            $table->string('codigo_banipay', 100)->nullable();
             $table->timestamps();
         });
     }

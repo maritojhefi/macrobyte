@@ -13,11 +13,7 @@
                     </ol>
                 </nav>
             </div>
-            <x-boton-opciones>
-                <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#modalformulario">
-                    <i class="la la-plus"></i> Crear Nuevo
-                </a>
-            </x-boton-opciones>
+            {{$slot}}
         </div>
     </header>
     

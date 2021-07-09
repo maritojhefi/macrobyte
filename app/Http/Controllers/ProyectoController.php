@@ -24,9 +24,9 @@ class ProyectoController extends Controller
         return back()->with('success','Proyecto  Registrado!');
     }
 
-    public function delete(Proyecto $usuario)
+    public function delete(Proyecto $proyecto)
     {
-        $usuario->delete();
+        $proyecto->delete();
         return back()->with('info','El proyecto fue eliminado!');
     }
 }

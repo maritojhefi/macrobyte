@@ -15,11 +15,13 @@ class TableForm extends Component
     public $contenido;
     public $variables;
     public $nombre;
-    public function __construct($contenido, $cabeceras, $variables, $nombre)
+    public $rutadelete;
+    public function __construct($contenido, $cabeceras, $variables, $nombre, $rutadelete)
     {
         $this->cabeceras = $cabeceras;
         $this->contenido = $contenido;
         $this->variables = $variables;
+        $this->rutadelete = $rutadelete;
         $this->nombre = $nombre;
 
     }

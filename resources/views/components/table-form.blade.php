@@ -30,7 +30,7 @@
                             
                             <td><a href="#" data-toggle="modal" data-target="#modaleliminar{{$datostabla->id}}"><i class="la la-trash"></i></a> </td>
                         </tr>
-                        <x-modal :nombre="$datostabla[$nombre]" ruta="usuario.delete" :id="$datostabla['id']"/>
+                        <x-modal :nombre="$datostabla[$nombre]" ruta="{{$rutadelete}}" :id="$datostabla['id']"/>
                     @endforeach
                  
                 </tbody>
