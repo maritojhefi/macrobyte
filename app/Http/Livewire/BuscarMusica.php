@@ -6,6 +6,7 @@ use Spotify;
 use Livewire\Component;
 use App\Models\Play_device;
 use Illuminate\Support\Str;
+use App\Models\Ranking_track;
 use App\Models\Spotify_token;
 use Illuminate\Support\Facades\Http;
 
@@ -14,8 +15,10 @@ class BuscarMusica extends Component
     public $buscar= '';
     public $show='active show';
     public $musica;
-    public function add($musica){
+    
+    public function add($musica , $nombre, $artista, $foto){
 
+       
         $track=explode(':',$musica);
         
     $reproductoractual=Play_device::find(1);
@@ -28,29 +31,89 @@ class BuscarMusica extends Component
        if($tokens->count()>0)
        {
            $tokenactual=$tokens->last();
-     
+           
+
            $agregaracola = Http::withToken($tokenactual->token)
            ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
    
           
            if($agregaracola->successful())
            {
-               
-               session()->flash('success', 'Cancion agregada!.');
+            $canciones=Ranking_track::where('uri',$musica)->get();
+            if($canciones->count()==0)
+            {
+                Ranking_track::create([
+                    'nombre'=>$nombre,
+                    'artista'=>$artista,
+                    'foto'=>$foto,
+                    'uri'=>$musica,
+                    'reproducido'=>1,
+                ]);
+            }
+            else
+            {
+                foreach($canciones as $cancion)
+                {
+                    $cancion->increment('reproducido',1);
+                    break;
+                }
+            
+            }
+            session()->flash('cerrar');
+
+               session()->flash('success', $nombre.' agregado a la cola!.');
            }
            else
            {
-             
-               session()->flash('danger', 'Error de token, genere uno nuevo!');
+            $refrescartoken=Http::withHeaders([
+                'Authorization' => 'Basic YTc4MTQ3ODE0MzBmNDliMzgwNTFlZjY2ZWIyYmFhOTk6YTE3MzRhY2I0MmU0NDNiYWE5YmU1MjMyYzZlYWNmMWE='
+              
+            ])->asForm()->post('https://accounts.spotify.com/api/token', [
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $tokenactual->refresh_token,
+            ]);
+            $respuesta=response($refrescartoken);
+            $dividido=explode(':',$respuesta);
+            $tokenobtenido=explode('"',$dividido[5]);
+            $tokendb=Spotify_token::first();
+           
+            $tokendb->token=$tokenobtenido[1];
+            $tokendb->save();
+            $agregaracola = Http::withToken($tokenobtenido[1])
+           ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
+           
+           $canciones=Ranking_track::where('uri',$musica)->get();
+           if($canciones->count()==0)
+           {
+               Ranking_track::create([
+                   'nombre'=>$nombre,
+                   'artista'=>$artista,
+                   'foto'=>$foto,
+                   'uri'=>$musica,
+               ]);
+           }
+           else
+           {
+               foreach($canciones as $cancion)
+               {
+                   $cancion->increment('reproducido',1);
+                   break;
+               }
+           
+           }
+            
+            session()->flash('success', $nombre.' agregado a la cola!.');
            }
        }
        else
        {
+        
            session()->flash('danger', 'No existe token, genere uno en perifericos');
        }
     }
     else
     {
+        
         session()->flash('danger', 'No se habilito el reproductor, seleccione uno en perifericos!');
     }
     

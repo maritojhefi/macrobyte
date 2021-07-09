@@ -17,7 +17,7 @@
                     <a href="#tab-2" class="nav-link {{$show}}" data-toggle="tab" aria-expanded="true"><i class="zmdi zmdi-search zmdi-hc-fw text-white"></i>Buscar</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="#tab-3" class="nav-link" data-toggle="tab" aria-expanded="true"><i class="la la-sort-amount-desc text-white"></i>Rank</a>
+                    <a href="#tab-3" class="nav-link rank" data-toggle="tab" aria-expanded="true"><i class="la la-sort-amount-desc text-white"></i>Rank</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a href="#tab-4" class="nav-link" data-toggle="tab" aria-expanded="true"><i class="zmdi zmdi-format-indent-decrease zmdi-hc-fw text-white"></i>Historial</a>

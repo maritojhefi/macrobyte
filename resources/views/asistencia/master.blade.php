@@ -19,7 +19,19 @@
 	<link rel="stylesheet" href="{{asset("dashboard/css/icons/material-design-iconic-font.min.css")}}">
 	<script type="text/javascript" src="{{asset("dashboard/vendor/jquery/dist/jquery.min.js")}}"></script>
 	@laravelPWA
-	@livewireStyles
+	
+	<style>
+		.texto-artist {
+	color: white; text-shadow: black 0.1em 0.1em 0.2em;
+	font-weight: bold;
+}
+.texto-borde {
+	color: white; text-shadow: black 0.1em 0.1em 0.2em;
+	font-weight: normal;
+}
+	</style>
+
+@livewireStyles
 </head>
 
 <body class="content-menu  ">

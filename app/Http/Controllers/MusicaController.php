@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Aerni\Spotify\Spotify;
+use Spotify;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Ranking_track;
 use App\Models\Spotify_token;
 use Illuminate\Support\Facades\Http;
 
@@ -67,7 +68,7 @@ class MusicaController extends Controller
     
     $codificado=base64_encode($clientid.":".$clientpass);
     $fullurl=$request->fullUrl();
-
+ 
     $code=explode('code=',$fullurl);
   $onlycode=explode('state',$code[1]);
   
@@ -85,7 +86,7 @@ $headers = array(
 );
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
-$data = "grant_type=authorization_code&code=".$onlycode[0]."&redirect_uri=https%3A%2F%2Fmacrobyte.site%2Fmusica%2Fcallback";
+$data = "grant_type=authorization_code&code=".$onlycode[0]."&redirect_uri=https%3A%2F%2Fmacrobyte.test%2Fmusica%2Fcallback";
 
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
@@ -96,6 +97,7 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 $resp = curl_exec($curl);
 
 $devolucion=explode('":"',$resp);
+
 $token=explode('"',$devolucion[1]);
 
 $token_refresh=explode('"',$devolucion[3]);
@@ -104,7 +106,7 @@ Spotify_token::truncate();
         Spotify_token::create([
             'token'=> $token[0],
             'user_id'=>auth()->user()->id,
-
+            'refresh_token'=>$token_refresh[0],
         ]);
         
         
@@ -129,6 +131,11 @@ public function agregaracola(Request $request)
        {
            $tokenactual=$tokens->last();
      
+           $refrescartoken=Http::asForm()->post('https://accounts.spotify.com/api/token', [
+            'grant_type' => 'refresh_token',
+            'refresh_token' => 'AQDxVYqfmksniwhtsaZWJ9HpydtrIIfU5v2WJ_tqkGQWQLledLVcWMovnpYlPABRrNd-q5VrbKZxvIU8nerQzHLy9_bQ6hIE48naIPZiphfFCSXYCJZadpH08A2Zy1x8I1c',
+        ]);
+        dd($refrescartoken);
            $agregaracola = Http::withToken($tokenactual->token)
            ->post("https://api.spotify.com/v1/me/player/queue?uri=spotify%3Atrack%3A".$track[2]."&device_id=".$deviceid);
    
@@ -147,6 +154,7 @@ public function agregaracola(Request $request)
                        'artista'=>$request->artista,
                        'foto'=>$request->foto,
                        'uri'=>$request->trackid,
+                       'reproducido'=>1,
                    ]);
                }
                else
@@ -181,5 +189,29 @@ public function agregaracola(Request $request)
     
   
  
+   }
+   public function listarranking()
+   {
+       $ranking= Ranking_track::orderBy('reproducido','desc')->take(10)->get();
+      $coleccion=collect();
+       foreach($ranking as $lista)
+       {
+        $coleccion->push([
+            'nombre'=>Str::limit($lista->nombre, 30),
+            'artista'=>Str::limit($lista->artista, 30),
+            'foto'=>$lista->foto,
+            'reproducido'=>$lista->reproducido,
+        ]);
+       }
+     
+       if($coleccion->sum('reproducido')>1)
+       {
+        return $coleccion;
+
+       }
+       else{
+           return 'pocos registros';
+       }
+
    }
 }

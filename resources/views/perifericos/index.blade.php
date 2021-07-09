@@ -19,7 +19,7 @@
                     </li>
                     <li class="nav-item">
 
-                        <a class="nav-link" href="https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Fmacrobyte.site%2Fmusica%2Fcallback"><i class="icon la la-spotify font-size-22 v-align-middle p-r-15 p-t-5"></i>Generar token</a>
+                        <a class="nav-link" href="https://accounts.spotify.com/authorize?response_type=code&state=&client_id=a7814781430f49b38051ef66eb2baa99&scope=user-read-playback-state%20user-modify-playback-state&redirect_uri=https%3A%2F%2Fmacrobyte.test%2Fmusica%2Fcallback"><i class="icon la la-spotify font-size-22 v-align-middle p-r-15 p-t-5"></i>Generar token</a>
                     </li>
                    
                 </ul>

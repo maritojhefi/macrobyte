@@ -71,6 +71,7 @@ Route::get('/empresa', [App\Http\Controllers\EmpresaController::class, 'info'])-
 Route::get('/musica', [App\Http\Controllers\MusicaController::class, 'index'])->name('musica.index');
 Route::get('/actual', [App\Http\Controllers\MusicaController::class, 'actual'])->name('musica.actual');
 Route::get('/musica/callback', [App\Http\Controllers\MusicaController::class, 'callback'])->name('musica.token');
+Route::get('/musica/listarranking', [App\Http\Controllers\MusicaController::class, 'listarranking'])->name('listarranking');
 
 
 //pagos online
