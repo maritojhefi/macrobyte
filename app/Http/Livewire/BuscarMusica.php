@@ -102,7 +102,7 @@ class BuscarMusica extends Component
            
            }
             
-            session()->flash('success', $nombre.' agregado a la cola!.');
+            session()->flash('success', $nombre.' agregado a la cola.');
            }
        }
        else
