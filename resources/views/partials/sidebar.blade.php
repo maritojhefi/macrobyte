@@ -41,6 +41,9 @@
                 <li class="nav-dropdown {{ Request::path()=='pago' ? 'active':''}}">
                     <a href="{{route('pago.index')}}"><i class="la la-cc-visa"></i><span>Crear Pagos</span></a>
                 </li>
+                <li class="nav-dropdown {{ Request::path()=='qr' ? 'active':''}}">
+                    <a href="{{route('qr.index')}}"><i class="zmdi zmdi-audio zmdi-hc-fw"></i><span>Generar QR</span></a>
+                </li>
                 <li class="nav-dropdown {{ Request::path()=='musica' ? 'active':''}}">
                     <a href="{{route('musica.index')}}"><i class="zmdi zmdi-audio zmdi-hc-fw"></i><span>Reproductor</span></a>
                 </li>

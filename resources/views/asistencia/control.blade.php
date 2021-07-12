@@ -12,6 +12,7 @@
             </div>
         </a>
     </div>
+   
     <div class="card card-elevate card-hover text-center">
         <a href="#faqTitle" class="smooth-scroll showlist2" data-toggle="modal" data-target=".bd-example-modal-2">
             <div class="card-body">

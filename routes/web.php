@@ -97,6 +97,9 @@ Route::get('/periferico/historial', [App\Http\Controllers\PerifericoController::
 Route::get('/periferico/token', [App\Http\Controllers\PerifericoController::class, 'token'])->name('periferico.token');
 Route::post('/periferico/activarreproductor', [App\Http\Controllers\PerifericoController::class, 'activarreproductor'])->name('activarreproductor');
 
+//generar qr
+Route::get('/qr', [App\Http\Controllers\QrController::class, 'index'])->name('qr.index');
+
 
 Auth::routes();
 

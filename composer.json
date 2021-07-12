@@ -17,7 +17,8 @@
         "livewire/livewire": "^2.5",
         "printnode/printnode-php": "^2.0@RC",
         "ricorocks-digital-agency/soap": "^1.4",
-        "silviolleite/laravelpwa": "^2.0"
+        "silviolleite/laravelpwa": "^2.0",
+        "simplesoftwareio/simple-qrcode": "~4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
