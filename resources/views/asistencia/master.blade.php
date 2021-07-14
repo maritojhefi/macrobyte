@@ -29,6 +29,7 @@
 	color: white; text-shadow: black 0.1em 0.1em 0.2em;
 	font-weight: normal;
 }
+
 	</style>
 
 @livewireStyles
@@ -113,5 +114,9 @@
 	<script src="{{asset('dashboard/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
 	<script src="{{asset('dashboard/js/global/app.js')}}"></script>
 	<script src="{{asset('dashboard/js/components/vertical-wizard-init.js')}}"></script>
+	<script src="{{asset('dashboard/vendor/noUiSlider/nouislider.min.js')}}"></script>
+	<script src="{{asset('dashboard/vendor/rateYo/jquery.rateyo.min.js')}}"></script>
+	<script src="{{asset('dashboard/vendor/wNumb/wNumb.js')}}"></script>
+	<script src="{{asset('dashboard/js/components/ecom-dashboard-slider-init.js')}}"></script>
 	</body>
 </html>

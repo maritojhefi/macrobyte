@@ -1,6 +1,9 @@
 <div class=" col-md-6" id="cardactual">
     
     </div>
+    <div id="tab-cola">
+    
+    </div>
 
 <script>
     document.querySelectorAll(".actual").
@@ -30,13 +33,15 @@
   
      
    }))
-
+   
    function leerjson2(approved){
     console.log(approved);
     
      var imagen =  document.getElementById("cardactual");
-      
-       imagen.innerHTML='<div class="card text-white"><img class="card-img" src="'+approved[0]+'" style="width: auto" alt="Card image"><div class="card-img-overlay"><img src="{{asset('gifs/hojas.gif')}}" style="width: 80%; height:auto; position: absolute; " alt=""><h3 class="card-title texto-borde">'+approved[2]+'</h3><p class="texto-artist ">'+approved[1]+'</p><div style="position: absolute; left:15px;bottom:15px;"><a class="btn btn-rounded btn-dark mr-2" style="padding:10px 10px 30px 10px"><i class="zmdi zmdi-thumb-up zmdi-hc-fw" style="color:white"></i></a><a class="btn btn-rounded btn-dark" style="padding:10px 10px 30px 10px"><i class="zmdi zmdi-thumb-down zmdi-hc-fw" style="color:white"></i></a></div><img src="{{asset('gifs/casette.gif')}}" style="width: 100px; position: absolute; right:15px;bottom:15px;" alt=""></div></div>';
+      var a='<div class="card text-white"><img class="card-img" src="'+approved[0]+'" style="width: auto" alt="Card image"><div class="card-img-overlay"><img src="{{asset('gifs/hojas.gif')}}" style="width: 80%; height:auto; position: absolute; " alt=""><h3 class="card-title texto-borde">'+approved[2]+'</h3><p class="texto-artist ">'+approved[1]+'</p>';
+      var b='<div class="icon-rounded icon-rounded-primary float-left m-r-20" style="position: absolute;bottom: 70px;left: 50%;transform: translate(-50%, -50%);"><i class="icon dripicons-cart"></i></div>';
+      var c='<div style="position: absolute; left:15px;bottom:15px;"><a class="btn btn-rounded btn-dark mr-2" style="padding:10px 10px 30px 10px"><i class="zmdi zmdi-thumb-up zmdi-hc-fw" style="color:white"></i></a><a class="btn btn-rounded btn-dark" style="padding:10px 10px 30px 10px"><i class="zmdi zmdi-thumb-down zmdi-hc-fw" style="color:white"></i></a></div><img src="{{asset('gifs/casette.gif')}}" style="width: 100px; position: absolute; right:15px;bottom:15px;" alt=""></div></div>';
+       imagen.innerHTML=a+c;
 
        
    }

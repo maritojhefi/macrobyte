@@ -22,15 +22,16 @@ Route::get('/', function () {
 Route::get('/google085c423aaa790337', function () {
     return view('google085c423aaa790337');
 });
-
+Auth::routes();
 Route::get('/pasantes', [App\Http\Controllers\Controller::class, 'pasantes'])->name('pasantes');
 Route::post('/formulario', [App\Http\Controllers\Controller::class, 'formulario'])->name('formulario');
 Route::get('/admin', [App\Http\Controllers\Controller::class, 'admin'])->name('admin');
 Route::get('/borrarpasante{pasante}', [App\Http\Controllers\Controller::class, 'borrarpasante'])->name('borrarpasante');
 
 
-//asistencia
-Route::get('/control', [App\Http\Controllers\Controller::class, 'control'])->name('control');
+Route::middleware('admin')->group(function () {
+   
+    Route::get('/control', [App\Http\Controllers\Controller::class, 'control'])->name('control');
 Route::post('/entrada', [App\Http\Controllers\Controller::class, 'entrada'])->name('entrada');
 Route::post('/salida', [App\Http\Controllers\Controller::class, 'salida'])->name('salida');
 Route::post('/revisar', [App\Http\Controllers\Controller::class, 'revisar'])->name('revisar');
@@ -72,6 +73,7 @@ Route::get('/musica', [App\Http\Controllers\MusicaController::class, 'index'])->
 Route::get('/actual', [App\Http\Controllers\MusicaController::class, 'actual'])->name('musica.actual');
 Route::get('/musica/callback', [App\Http\Controllers\MusicaController::class, 'callback'])->name('musica.token');
 Route::get('/musica/listarranking', [App\Http\Controllers\MusicaController::class, 'listarranking'])->name('listarranking');
+Route::get('/musica/reproductor', [App\Http\Controllers\MusicaController::class, 'reproductoractual'])->name('playeractual');
 
 
 //pagos online
@@ -101,11 +103,14 @@ Route::post('/periferico/activarreproductor', [App\Http\Controllers\PerifericoCo
 Route::get('/qr', [App\Http\Controllers\QrController::class, 'index'])->name('qr.index');
 
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/facturar', [App\Http\Controllers\HomeController::class, 'facturar'])->name('home');
+});
+//asistencia
+
 
 
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Ranking_track;
 use App\Models\Spotify_token;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
 class MusicaController extends Controller
@@ -212,6 +213,17 @@ public function agregaracola(Request $request)
        else{
            return 'pocos registros';
        }
+
+   }
+   public function reproductoractual()
+   {
+    $tokens=Spotify_token::all();
+    $tokenpaq=$tokens->last();
+    $tokenactual=$tokenpaq->token;
+    $cancionactual= Http::withToken($tokenactual)
+    ->get('https://api.spotify.com/v1/me/player');
+    $coleccion= json_decode($cancionactual, true);
+    dd($coleccion);
 
    }
 }

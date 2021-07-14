@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('telf')->nullable();
             $table->string('email')->unique();
             $table->integer('codigo')->unsigned()->nullable();
-            $table->bigInteger('rol_id')->unsigned()->nullable();
+            $table->bigInteger('rol_id')->unsigned()->nullable()->default(1);
             $table->bigInteger('empresa_id')->unsigned()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
