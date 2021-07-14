@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Auth;
 
 class AdminCheck
 {
@@ -20,8 +21,11 @@ class AdminCheck
         if(auth()->user()->rol_id!=1) 
         {
             return $next($request);
-
         }
-        return abort(403, 'No estas autorizado a ver esta seccion');
+        else
+        {
+            Auth::logout();
+            return abort(403, 'No estas autorizado a ver esta seccion');
+        }
     }
 }

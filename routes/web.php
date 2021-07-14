@@ -30,7 +30,8 @@ Route::get('/borrarpasante{pasante}', [App\Http\Controllers\Controller::class, '
 
 
 Route::middleware('admin')->group(function () {
-   
+ //asistencia
+  
     Route::get('/control', [App\Http\Controllers\Controller::class, 'control'])->name('control');
 Route::post('/entrada', [App\Http\Controllers\Controller::class, 'entrada'])->name('entrada');
 Route::post('/salida', [App\Http\Controllers\Controller::class, 'salida'])->name('salida');
@@ -109,7 +110,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/facturar', [App\Http\Controllers\HomeController::class, 'facturar'])->name('home');
 });
-//asistencia
 
 
 
