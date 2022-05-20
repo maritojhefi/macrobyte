@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
@@ -21,4 +22,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('api')->group(function () {
     Route::resource('users', UsuarioController::class);
+});
+
+Route::get('/pruebas/webhook', function()
+{
+    User::create([
+        'name'=>'Marioooo',
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
 });
