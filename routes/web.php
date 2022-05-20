@@ -128,7 +128,7 @@ Route::get('/facturar', [App\Http\Controllers\FacturacionController::class, 'fac
 
 Route::get('/pruebas/qr', [App\Http\Controllers\PruebasController::class, 'qr']);
 
-
+Route::get('/pruebas/webhook', [App\Http\Controllers\PruebasController::class, 'pruebaWebhook']);
 
 
 
