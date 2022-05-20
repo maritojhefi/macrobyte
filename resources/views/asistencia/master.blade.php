@@ -42,13 +42,12 @@
 	@hasSection('content')
 	<div id="">
 		<!-- TOP TOOLBAR WRAPPER -->
-		@include('partials.navmobile')
-		@include('partials.nav')
+		
 
 		<!-- END TOP TOOLBAR WRAPPER -->
 			<div class="content-wrapper">
 				<!-- MENU SIDEBAR WRAPPER -->
-				@include('partials.sidebar')
+			@include('partials.sidebar')
 				<div class="content container-fluid">
 
 					@include('partials.session-flash-status')

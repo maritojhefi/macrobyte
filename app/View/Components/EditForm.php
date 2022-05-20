@@ -8,10 +8,12 @@ class EditForm extends Component
 {
     public $variables;
     public $modelo;
-    public function __construct($modelo, $variables)
+    public $rutaeditar;
+    public function __construct($modelo, $variables ,$rutaeditar)
     {
         $this->variables = $variables;
         $this->modelo = $modelo;
+        $this->rutaeditar = $rutaeditar;
 
     }
 

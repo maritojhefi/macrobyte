@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'address',
         'telf',
+        'imagen'
         
     ];
 
@@ -41,6 +42,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function getImagenAttribute($value){
+        return "images/".$value;
+    }
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

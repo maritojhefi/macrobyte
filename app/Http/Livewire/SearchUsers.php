@@ -19,7 +19,7 @@ class SearchUsers extends Component
     public function render()
     {
         
-        $productos=Product::where('nombre','LIKE','%'.$this->search.'%')->orderBy('created_at',$this->order)->paginate($this->paginate);
+        $productos=Product::where('nombre','LIKE','%'.$this->search.'%')->orWhere('codigoBarra',$this->search)->orderBy('created_at',$this->order)->paginate($this->paginate);
         $total=$productos->total();
         
         return view('livewire.search-users', compact('productos','total'));

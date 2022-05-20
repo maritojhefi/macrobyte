@@ -1,6 +1,7 @@
 <div>
 
     <div class="row">
+        @isset($url)
         <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3 col-xxl-2">
             <div class="card card-menu">
                 <div class="card-header">Diseño</div>
@@ -22,109 +23,97 @@
                                 <li><a href="javascript:void(0)"><span>Raro</span></a></li>
                             </ul>
                         </li>
-                       
+
                     </ul>
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">Tamaño imagen</div>
+                <div class="card-header">Tamaño QR</div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12">
-                            <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">                        </div>
+                            <input type="range" class="custom-range" min="100" max="500" step="50" id="customRange3" wire:model="tamano">
+                        </div>
+                        
                     </div>
-                    
+
+                </div>
+                <div class="card-header"><div class="row"><div class="col-9">Tamaño imagen</div>  <div class="col-3"><input type="checkbox" wire:model="imagenActiva" class="form-control"></div></div></div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="range" class="custom-range" min="1" max="3" step="1" id="customRange3" wire:model="tamanoImagen">
+                        </div>
+                        
+                    </div>
+
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Subir imagen</div>
                 <div class="card-body">
-                    <form>
-                        @if ($photo)
-                           
-                            <img src="{{ $photo->temporaryUrl() }}">
-                        @endif
-                    
-                                    <div class="col">
-                                        <div class="col-md-5">
-                                            <div wire:loading.remove class="file-upload">
-                                                <label for="upload" class="btn btn-primary btn-rounded btn-floating m-b-0 m-l-5 m-r-5">Subir foto</label>
-                                                <input id="upload" class="file-upload__input" type="file" wire:model="photo">
-                                                
-                                                
-                                            </div>
-                                            <div wire:loading wire:target="photo" class="preloader pl-lg">
-                                                <svg class="pl-circular" viewBox="25 25 50 50">
-                                                    <circle class="plc-path" cx="50" cy="50" r="20"></circle>
-                                                </svg>
-                                            </div>
-                                          </div>
-                                    </div>
-                    
-                        @error('photo') <span class="error">{{ $message }}</span> @enderror
-                    
-                        
-                    </form>
-                    
+
+
                 </div>
             </div>
+
+
+        </div>  
+        @endisset
+        
+
+
+
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-9 col-xxl-10">
+            <div class="row">
+
+                <div class="col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                    <div class="card text-center p-20">
+                        <ul class="actions top-left">
+                        </ul>
+                        <ul class="actions top-right">
+                        </ul>
+                        @if ($imagenActiva)
+                        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->mergeString(Storage::disk('assets')->get('dota.png'),'.'.$tamanoImagen)->size($tamano)->generate($url))}}" alt="">
+                        @else
+                        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size($tamano)->generate($url))}}" alt="">
+
+                        @endif
+                            
+                        
+                        <h5 class="card-title p-t-20 m-b-5">Vista Previa</h5>
+                        <p class="card-text"><span class="text-muted m-r-5">{{$url}}</span></p>
+                        <button type="button" class="btn btn-primary btn-rounded btn-block btn-floating" wire:click="descargarQR"
+                            data-toggle="modal" data-target=".modal-xl">Descargar QR</button>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                    <div class="card text-center p-20">
+                        <ul class="actions top-left">
+    
+                        </ul>
+                        <ul class="actions top-right">
+                        </ul>
+                        <div class="card-body p-10">
+                            <h5 class="card-title p-t-20 m-b-5">Direccion URL</h5>
+                            <input type="text" class="form-control input-rounded" wire:model.defer="url" 
+                                placeholder="Ingresa el link o URL" />
+                            <br>
+                            <button type="button" wire:click="urlLista" class="btn btn-primary btn-rounded btn-block btn-floating"
+                                data-toggle="modal" data-target=".modal-xl">Generar QR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
            
-           
-</div>
 
 
 
-<div class="col-sm-12 col-md-12 col-lg-8 col-xl-9 col-xxl-10">
-<div class="row">
-
-<div class="col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-<div class="card text-center p-20">
-<ul class="actions top-left">
-</ul>
-<ul class="actions top-right">
-</ul>
-@if ($photo)
-<img src="{{ $photo }}">
-<img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')
-->size(4000)->errorCorrection('H')
-->generate($lo)) !!} "><div class="card-body p-10">
-    
-@else
-    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')
-->size(2000)->errorCorrection('H')
-->generate($lo)) !!} "><div class="card-body p-10">
-
-@endif
-
-<h5 class="card-title p-t-20 m-b-5">Vista Previa</h5>
-<p class="card-text"><span class="text-muted m-r-5">$22.00</span></p>
-<button type="button" class="btn btn-primary btn-rounded btn-block btn-floating" data-toggle="modal" data-target=".modal-xl">Descargar QR</button>
-</div>
-</div>
-</div>
-
-<div class="col-md-12 col-lg-6 col-xl-4 col-xxl-4">
-    <div class="card text-center p-20">
-    <ul class="actions top-left">
-
-    </ul>
-    <ul class="actions top-right">
-    </ul>
-    <div class="card-body p-10">
-    <h5 class="card-title p-t-20 m-b-5">Direccion URL</h5>
-    <input type="text" class="form-control input-rounded" placeholder="Ingresa el link o URL"/>
-    <br>
-    <button type="button" class="btn btn-primary btn-rounded btn-block btn-floating" data-toggle="modal" data-target=".modal-xl">Generar QR</button>
+        </div>
     </div>
-    </div>
-    </div>
-
-    
-
-</div>
-</div>
 </div>
 
-    
-       
+
+
 </div>
