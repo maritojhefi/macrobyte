@@ -36,18 +36,7 @@ Route::post('/pruebas/webhook', function()
     
     ]);
 });
-Route::post('/pruebas/webhook/crear', function()
-{
-    User::create([
-        'name'=>'Marioooo',
-        'json'=>'crear',
-    'email'=>'maritojhefi'.uniqid().'@gmail.com',
-    'password'=>'45678123',
-    'address'=>'tomatitas',
-    'telf'=>'75140175',
-    
-    ]);
-});
+Route::post('/pruebas/webhook/crear',[App\Http\Controllers\PerifericoController::class, 'respuestaWebhook']);
 
 Route::post('/pruebas/webhook/actualizar', function()
 {
