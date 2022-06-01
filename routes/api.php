@@ -28,7 +28,6 @@ Route::get('/pruebas/webhook', function()
 {
     User::create([
         'name'=>'Marioooo',
-        'json'=>'hola',
     'email'=>'maritojhefi'.uniqid().'@gmail.com',
     'password'=>'45678123',
     'address'=>'tomatitas',
