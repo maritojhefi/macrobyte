@@ -103,7 +103,7 @@ class PerifericoController extends Controller
     {
         User::create([
             'name'=>"Mario Jheferson Cotave Rodriguez",
-            'json'=>$request,
+            'json'=>'hola',
             'email'=>"mario.cotave".uniqid()."@macrobyte.site",
             'password'=>"jhefi123",
             'telf'=>"75140175",
