@@ -40,7 +40,7 @@ Route::post('/pruebas/webhook/crear', function(Request $request)
 {
     User::create([
         'name'=>'Marioooo',
-        'json'=>'crear'.$request,
+        'json'=>'crear'.json_encode($request->all()),
     'email'=>'maritojhefi'.uniqid().'@gmail.com',
     'password'=>'45678123',
     'address'=>'tomatitas',
@@ -51,9 +51,10 @@ Route::post('/pruebas/webhook/crear', function(Request $request)
 
 Route::post('/pruebas/webhook/actualizar', function(Request $request)
 {
+    
     User::create([
         'name'=>'Marioooo',
-        'json'=>'actualizar'.$request,
+        'json'=>json_encode($request->all()),
     'email'=>'maritojhefi'.uniqid().'@gmail.com',
     'password'=>'45678123',
     'address'=>'tomatitas',
