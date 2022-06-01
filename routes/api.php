@@ -36,3 +36,53 @@ Route::post('/pruebas/webhook', function()
     
     ]);
 });
+Route::post('/pruebas/webhook/crear', function()
+{
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>'crear',
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+
+Route::post('/pruebas/webhook/actualizar', function()
+{
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>'actualizar',
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+Route::post('/pruebas/webhook/crearConver', function()
+{
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>'crearConver',
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+Route::post('/pruebas/webhook/actualizarConver', function()
+{
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>'actualizarConver',
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+
