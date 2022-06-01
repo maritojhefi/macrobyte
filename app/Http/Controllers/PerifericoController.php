@@ -111,5 +111,6 @@ class PerifericoController extends Controller
             'empresa_id'=>1,
            
         ]);
+        return "gracias";
     }
 }

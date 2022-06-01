@@ -52,7 +52,13 @@
                 </li>
                 <li class="nav-dropdown {{ Request::path()=='periferico' ? 'active':''}}">
                     <a href="{{route('periferico.index')}}"><i class="zmdi zmdi-collection-music zmdi-hc-fw"></i><span>Perifericos</span></a>
-
+                    
+                </li>
+                <li class="nav-dropdown {{ Request::path()=='periferico' ? 'active':''}}">
+                    <form action="api/pruebas/webhook/actualizar" method="POST">
+                        <button type="submit"><i class="zmdi zmdi-collection-music zmdi-hc-fw"></i>Webhook</button>
+                    </form>
+                    
                 </li>
             </ul>
         </nav>

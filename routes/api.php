@@ -28,7 +28,7 @@ Route::post('/pruebas/webhook', function()
 {
     User::create([
         'name'=>'Marioooo',
-        'json'=>'hola',
+        'json'=>'holis',
     'email'=>'maritojhefi'.uniqid().'@gmail.com',
     'password'=>'45678123',
     'address'=>'tomatitas',
@@ -36,13 +36,11 @@ Route::post('/pruebas/webhook', function()
     
     ]);
 });
-Route::post('/pruebas/webhook/crear',[App\Http\Controllers\PerifericoController::class, 'respuestaWebhook']);
-
-Route::post('/pruebas/webhook/actualizar', function()
+Route::post('/pruebas/webhook/crear', function(Request $request)
 {
     User::create([
         'name'=>'Marioooo',
-        'json'=>'actualizar',
+        'json'=>'crear'.$request,
     'email'=>'maritojhefi'.uniqid().'@gmail.com',
     'password'=>'45678123',
     'address'=>'tomatitas',
@@ -50,7 +48,20 @@ Route::post('/pruebas/webhook/actualizar', function()
     
     ]);
 });
-Route::post('/pruebas/webhook/crearConver', function()
+
+Route::post('/pruebas/webhook/actualizar', function(Request $request)
+{
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>'actualizar'.$request,
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+Route::post('/pruebas/webhook/crearConver', function(Request $request)
 {
     User::create([
         'name'=>'Marioooo',
@@ -62,7 +73,7 @@ Route::post('/pruebas/webhook/crearConver', function()
     
     ]);
 });
-Route::post('/pruebas/webhook/actualizarConver', function()
+Route::post('/pruebas/webhook/actualizarConver', function(Request $request)
 {
     User::create([
         'name'=>'Marioooo',
