@@ -24,7 +24,7 @@ Route::middleware('api')->group(function () {
     Route::resource('users', UsuarioController::class);
 });
 
-Route::get('/pruebas/webhook', function()
+Route::post('/pruebas/webhook', function()
 {
     User::create([
         'name'=>'Marioooo',
