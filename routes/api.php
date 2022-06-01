@@ -24,14 +24,4 @@ Route::middleware('api')->group(function () {
     Route::resource('users', UsuarioController::class);
 });
 
-Route::post('/pruebas/webhook', function()
-{
-    User::create([
-        'name'=>'Marioooo',
-    'email'=>'maritojhefi'.uniqid().'@gmail.com',
-    'password'=>'45678123',
-    'address'=>'tomatitas',
-    'telf'=>'75140175',
-    
-    ]);
-});
+Route::post('/pruebas/webhook',[App\Http\Controllers\PerifericoController::class, 'respuestaWebhook']);

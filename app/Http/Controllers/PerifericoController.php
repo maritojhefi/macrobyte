@@ -97,4 +97,9 @@ class PerifericoController extends Controller
         ]);
         return back()->with('success',$request->nombre.' es ahora el reproductor activo!');
     }
+
+    public function respuestaWebhook(Request $request)
+    {
+        
+    }
 }
