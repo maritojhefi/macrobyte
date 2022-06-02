@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
@@ -11,4 +12,6 @@ class VentaController extends Controller
         return view('ventas.index');
  
     }
+
+    
 }

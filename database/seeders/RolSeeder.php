@@ -19,16 +19,27 @@ class RolSeeder extends Seeder
             'nombre'=>"invitado",
             'detalle'=>"Rol por defecto",
            
+        ],
+        [
+            'nombre'=>"miembro",
+            'detalle'=>"Rol con privilegios basicos",
+           
+        ],
+        [
+            'nombre'=>"administrador",
+            'detalle'=>"Rol con acceso total",
+           
+        ],
+        [
+            'nombre'=>"vendedor",
+            'detalle'=>"Rol con vista a venta de productos",
+           
+        ],
+        [
+            'nombre'=>"admin-pos",
+            'detalle'=>"Rol con acceso a administracion de su tienda",
+           
         ]);
-        Rol::create([
-           'nombre'=>"miembro",
-           'detalle'=>"Rol con privilegios basicos",
-          
-       ]);
-       Rol::create([
-        'nombre'=>"administrador",
-        'detalle'=>"Rol con acceso total al sistema",
-       
-    ]);
+      
     }
 }

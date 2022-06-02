@@ -22,6 +22,12 @@ Route::get('/', function () {
 Route::get('/google085c423aaa790337', function () {
     return view('google085c423aaa790337');
 });
+
+Route::get('/otromenu', function () {
+    return view('prueba');
+});
+
+
 Auth::routes();
 Route::get('/pasantes', [App\Http\Controllers\Controller::class, 'pasantes'])->name('pasantes');
 Route::post('/formulario', [App\Http\Controllers\Controller::class, 'formulario'])->name('formulario');
@@ -55,6 +61,10 @@ Route::get('/producto', [App\Http\Controllers\ProductoController::class, 'index'
 Route::post('/producto/create', [App\Http\Controllers\ProductoController::class, 'create'])->name('producto.create');
 Route::delete('/producto/eliminar/{producto}',  [App\Http\Controllers\ProductoController::class, 'delete'])->name('producto.delete');
 Route::get('/producto/editar/{producto}',  [App\Http\Controllers\ProductoController::class, 'edit'])->name('producto.edit');
+Route::post('/producto/actualizar',  [App\Http\Controllers\ProductoController::class, 'update'])->name('producto.actualizar');
+Route::get('/producto/crear',  [App\Http\Controllers\ProductoController::class, 'form'])->name('product.form');
+Route::get('/producto/venta',  [App\Http\Controllers\ProductoController::class, 'venta'])->name('product.venta');
+Route::post('/producto/addtolist',  [App\Http\Controllers\ProductoController::class, 'addtolist'])->name('addtolist');
 
  //cotizaciones
  Route::get('/cotizacion/crear', [App\Http\Controllers\CotizacionController::class, 'create'])->name('cotizacion.create');
@@ -68,7 +78,9 @@ Route::get('/producto/editar/{producto}',  [App\Http\Controllers\ProductoControl
 
 //empresa
 Route::get('/empresa', [App\Http\Controllers\EmpresaController::class, 'info'])->name('empresa.info');
-
+Route::get('/empresa/index', [App\Http\Controllers\EmpresaController::class, 'index'])->name('empresa.index');
+Route::post('/empresa/create',  [App\Http\Controllers\EmpresaController::class, 'create'])->name('empresa.create');
+Route::delete('/empresa/eliminar/{empresa}',  [App\Http\Controllers\EmpresaController::class, 'delete'])->name('empresa.delete');
 //musica
 Route::get('/musica', [App\Http\Controllers\MusicaController::class, 'index'])->name('musica.index');
 Route::get('/actual', [App\Http\Controllers\MusicaController::class, 'actual'])->name('musica.actual');
@@ -108,8 +120,13 @@ Route::get('/qr', [App\Http\Controllers\QrController::class, 'index'])->name('qr
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/facturar', [App\Http\Controllers\HomeController::class, 'facturar'])->name('home');
+Route::get('/facturar', [App\Http\Controllers\FacturacionController::class, 'facturar'])->name('facturar');
+
+
 });
+
+
+Route::get('/pruebas/qr', [App\Http\Controllers\PruebasController::class, 'qr']);
 
 
 

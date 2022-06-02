@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->string('codigoBarra', 100)->nullable();
             $table->string('imagen', 100)->nullable();
             $table->string('codigoProducto', 100)->nullable();
+            $table->integer('cantidad')->unsigned()->nullable()->default(0);
+            $table->integer('precioVenta')->unsigned()->nullable()->default(0);
 
             $table->timestamps();
         });

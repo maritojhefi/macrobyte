@@ -2,8 +2,11 @@
 @section('content')
     <x-cabecera-pagina  titulo="Productos">
         <x-boton-opciones>
-            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#modalformulario">
+            <a href="{{route('product.form')}}" class="dropdown-item">
                 <i class="la la-plus"></i> Crear Nuevo
+            </a>
+            <a href="{{route('product.venta')}}" class="dropdown-item">
+                <i class="la la-plus"></i> Nueva venta
             </a>
         </x-boton-opciones>
     </x-cabecera-pagina>
@@ -17,7 +20,6 @@
                
         </div>
     </section>
-    <x-modal-form-create :lista="(['nombre'=>'text','codigo Barra'=>'text','imagen'=>'file','codigo Producto'=>'textarea'])" ruta="producto.create"/>
       
 
        

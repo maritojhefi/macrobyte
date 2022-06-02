@@ -40,8 +40,8 @@
                 <thead>
                     <tr role="row ">
                     
-                        <th>Nombre  </th>
-                        <th>Imagen</th>
+                        <th  style="width: 5px;">Imagen  </th>
+                        <th>Nombre</th>
                         <th>Codigo Producto</th>
                         <th>Codigo Barra</th>
                         <th style="width: 5px;"> <i class="icon dripicons-gear text-success"></i></th>
@@ -53,12 +53,13 @@
                   @else    
                   @foreach($productos as $producto)
                     <tr>
+                        
+                        <td><img src="{{ $producto->imagen }}" class="w-50 rounded-circle" alt="foto"></td>
                         <td>
-                           @foreach (array($producto->nombre) as $item)
                             
-                        {{$item}}
-                        @endforeach</td>
-                        <td>{{ $producto->imagen }}</td>
+                             
+                         {{$producto->nombre}}
+                      </td>
                         <td>{{ $producto->codigoProducto }}</td>
                         <td>{{ $producto->codigoBarra }}</td> 
                         <td>

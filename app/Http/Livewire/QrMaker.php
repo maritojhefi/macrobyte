@@ -4,26 +4,31 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class QrMaker extends Component
 {
 
     use WithFileUploads;
 
-    public $photo;
-
-    public function updatedPhoto()
+    public $url="macrobyte.site";
+    public $qr='';
+    public $tamano=200;
+    public $tamanoImagen=3;
+    public $imagenActiva;
+    public function ver()
     {
-        $this->validate([
-            'photo' => 'image|max:1024', // 1MB Max
-        ]);
+        dd($this->imagenActiva);
     }
-
-    public function save()
+    public function urlLista()
     {
-        // ...
+      
     }
-    public $lo='www.macrobyte.site';
+    public function descargarQR()
+    {
+        
+    }
     public function render()
     {
         return view('livewire.qr-maker');

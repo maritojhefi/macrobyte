@@ -23,10 +23,12 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->name(),
-            'codigoBarra' => $this->faker->unique()->safeEmail(),
-            'codigoProducto' => now(),
-            'imagen' => $this->faker->name(), // password
+            'nombre' => $this->faker->jobTitle,
+            'codigoBarra' => $this->faker->ean13,
+            'codigoProducto' =>  $this->faker->ean8,
+            'imagen' => 'logounico.png', 
+            'cantidad'=>$this->faker->numberBetween($min = 10, $max = 100),
+            'precioVenta'=>$this->faker->numberBetween($min = 10, $max = 1000),
         ];
     }
 }

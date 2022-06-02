@@ -18,7 +18,10 @@
                     <a href="{{route('usuario.index')}}"><i class="zmdi zmdi-shield-security zmdi-hc-fw"></i><span>Usuarios</span></a>
                 </li>
                 <li class="nav-dropdown {{ Request::path()=='rol' ? 'active':''}}">
-                    <a href="{{route('rol.index')}}"><i class="zmdi zmdi-shield-security zmdi-hc-fw"></i><span>Roles</span></a>
+                    <a href="{{route('rol.index')}}"><i class="zmdi zmdi-collection-bookmark zmdi-hc-fw"></i><span>Roles</span></a>
+                </li>
+                <li class="nav-dropdown {{ Request::path()=='empresa/index' ? 'active':''}}">
+                    <a href="{{route('empresa.index')}}"><i class="zmdi zmdi-layers zmdi-hc-fw"></i></i><span>Empresas Registradas</span></a>
                 </li>
                 <li class="nav-dropdown {{ Request::path()=='proyecto' ? 'active':''}}">
                     <a href="{{route('proyecto.index')}}"><i class="la la-diamond"></i><span>Proyectos</span></a>
