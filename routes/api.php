@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
@@ -22,3 +23,67 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('api')->group(function () {
     Route::resource('users', UsuarioController::class);
 });
+
+Route::post('/pruebas/webhook', function()
+{
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>'holis',
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+Route::post('/pruebas/webhook/crear', function(Request $request)
+{
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>'crear'.json_encode($request->all()),
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+
+Route::post('/pruebas/webhook/actualizar', function(Request $request)
+{
+    
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>json_encode($request->all()),
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+Route::post('/pruebas/webhook/crearConver', function(Request $request)
+{
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>'crearConver',
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+Route::post('/pruebas/webhook/actualizarConver', function(Request $request)
+{
+    User::create([
+        'name'=>'Marioooo',
+        'json'=>'actualizarConver',
+    'email'=>'maritojhefi'.uniqid().'@gmail.com',
+    'password'=>'45678123',
+    'address'=>'tomatitas',
+    'telf'=>'75140175',
+    
+    ]);
+});
+

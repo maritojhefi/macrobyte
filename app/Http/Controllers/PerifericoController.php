@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Play_device;
 use Illuminate\Http\Request;
 use App\Models\Spotify_token;
@@ -96,5 +97,20 @@ class PerifericoController extends Controller
             'estado'=>'activo',
         ]);
         return back()->with('success',$request->nombre.' es ahora el reproductor activo!');
+    }
+
+    public function respuestaWebhook(Request $request)
+    {
+        User::create([
+            'name'=>"Mario Jheferson Cotave Rodriguez",
+            'json'=>'hola desde controller',
+            'email'=>"mario.cotave".uniqid()."@macrobyte.site",
+            'password'=>"jhefi123",
+            'telf'=>"75140175",
+            'rol_id'=>3,
+            'empresa_id'=>1,
+           
+        ]);
+        return "gracias";
     }
 }

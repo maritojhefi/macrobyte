@@ -16,7 +16,7 @@
             <div class="col-12">
                 
                
-                <x-table-form :cabeceras="(['Nombre','Correo','Direccion','Telefono'])" nombre="name" rutadelete="usuario.delete" :contenido="$usuarios" :variables="(['name','email','address','telf'])" />
+                <x-table-form :cabeceras="(['Nombre','JSON','Correo','Direccion','Telefono'])" nombre="name" rutadelete="usuario.delete" :contenido="$usuarios" :variables="(['name','json','email','address','telf'])" />
 
                
         </div>

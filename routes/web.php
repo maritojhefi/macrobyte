@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Http\Livewire\EditProduct;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
@@ -127,7 +128,6 @@ Route::get('/facturar', [App\Http\Controllers\FacturacionController::class, 'fac
 
 
 Route::get('/pruebas/qr', [App\Http\Controllers\PruebasController::class, 'qr']);
-
 
 
 
