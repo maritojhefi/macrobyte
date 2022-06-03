@@ -46,7 +46,7 @@ Route::post('/pruebas/webhook/crear', function(Request $request)
     preg_match_all('!\d+!', $texto, $matches);
     if($json->message->from!='+59175122350')
     {
-        if($matches)
+        if(count($matches[0])>0)
         {
             foreach($matches[0] as $numero)
             {
@@ -112,12 +112,13 @@ Route::post('/pruebas/webhook/actualizarConver', function(Request $request)
 Route::get('/pruebas/webhook/json', function()
 {
     $jsonupdated=json_decode('{"contact":{"attributes":[],"createdDatetime":"2022-05-19T13:37:50Z","customDetails":[],"displayName":"+59175140175","firstName":null,"href":null,"id":"98e3ba82d226488bb4b70ed3b231ec1c","lastName":null,"msisdn":59175140175,"updatedDatetime":"2022-05-19T13:37:50Z"},"conversation":{"contactId":"98e3ba82d226488bb4b70ed3b231ec1c","createdDatetime":"2022-05-19T13:37:50Z","id":"0c3982f00ec0416081a7b98e5d294e59","lastReceivedDatetime":"2022-06-03T14:32:47.948842529Z","lastUsedChannelId":"a95418f8-9490-4e57-bf64-bc11a48061a0","lastUsedPlatformId":"whatsapp","status":"active","updatedDatetime":"2022-06-03T14:16:26.439774075Z"},"message":{"channelId":"a95418f8-9490-4e57-bf64-bc11a48061a0","content":{"text":"33443543"},"conversationId":"0c3982f00ec0416081a7b98e5d294e59","createdDatetime":"2022-06-03T14:33:49.031712575Z","direction":"sent","from":"+59175122350","id":"58eab625a9394ba2a875995ba6a64f8a","origin":"api","platform":"whatsapp","status":"transmitted","to":"+59175140175","type":"text","updatedDatetime":"2022-06-03T14:33:49Z"},"type":"message.updated","transactionID":"1312435365"}');
-    dd($jsonupdated);
-    $texto='hola 33443543';
+    //dd($jsonupdated);
+    $texto='hola';
    
     preg_match_all('!\d+!', $texto, $matches);
-    if(isset($matches))
+    if(count($matches)>0)
     {
+        dd($matches);
         foreach($matches[0] as $numeros)
         {
             //dd($numeros);
