@@ -44,13 +44,17 @@ Route::post('/pruebas/webhook/crear', function(Request $request)
     $texto=$json->message->content->text;
    
     preg_match_all('!\d+!', $texto, $matches);
-    // if(isset($matches))
-    // {
-    //     foreach($matches[0] as $numeros)
-    //     {
-    //         WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,''.$numeros);
-    //     }
-    // }
+    if($json->message->from!='+59175122350')
+    {
+        if(isset($matches))
+        {
+            foreach($matches[0] as $numeros)
+            {
+                WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,''.$numeros);
+            }
+        }
+    }
+    
     User::create([
         'name'=>'Marioooo',
         'json'=>$texto,
