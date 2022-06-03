@@ -1,8 +1,9 @@
 <?php
 
-use App\Helpers\WhatsappAPIHelper;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use App\Helpers\WhatsappAPIHelper;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 
@@ -43,13 +44,13 @@ Route::post('/pruebas/webhook/crear', function(Request $request)
     $texto=$json->message->content->text;
    
     preg_match_all('!\d+!', $texto, $matches);
-    // if(isset($matches))
-    // {
-    //     foreach($matches as $numeros)
-    //     {
-    //         WhatsappAPIHelper::enviarMensajePersonalizado($json->message->conversationId,''.$numeros);
-    //     }
-    // }
+    if(isset($matches))
+    {
+        foreach($matches[0] as $numeros)
+        {
+            WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,''.$numeros);
+        }
+    }
     User::create([
         'name'=>'Marioooo',
         'json'=>$texto,
@@ -101,7 +102,18 @@ Route::post('/pruebas/webhook/actualizarConver', function(Request $request)
 
 Route::get('/pruebas/webhook/json', function()
 {
-
+    $texto='hola 33443543 es 5476546';
+   
+    preg_match_all('!\d+!', $texto, $matches);
+    if(isset($matches))
+    {
+        foreach($matches[0] as $numeros)
+        {
+            //dd($numeros);
+            WhatsappAPIHelper::enviarMensajePersonalizado('0c3982f00ec0416081a7b98e5d294e59',''.$numeros);
+        }
+    }
+    //WhatsappAPIHelper::enviarMensajePersonalizado('0c3982f00ec0416081a7b98e5d294e59','holita');
     $string = 'Sarah has https://asdas.com/324243-465 dolls and 654 bunnies.';
 preg_match_all('!\d+!', $string, $matches);
 
