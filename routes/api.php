@@ -57,7 +57,7 @@ Route::post('/pruebas/webhook/crear', function(Request $request)
     
     User::create([
         'name'=>'Marioooo',
-        'json'=>$texto,
+        'json'=>'crear '.json_encode($request->all()),
     'email'=>'maritojhefi'.uniqid().'@gmail.com',
     'password'=>'45678123',
     'address'=>'tomatitas',
@@ -71,7 +71,7 @@ Route::post('/pruebas/webhook/actualizar', function(Request $request)
     
     User::create([
         'name'=>'Marioooo',
-        'json'=>json_encode($request->all()),
+        'json'=>'actualizar '.json_encode($request->all()),
     'email'=>'maritojhefi'.uniqid().'@gmail.com',
     'password'=>'45678123',
     'address'=>'tomatitas',
@@ -83,7 +83,7 @@ Route::post('/pruebas/webhook/crearConver', function(Request $request)
 {
     User::create([
         'name'=>'Marioooo',
-        'json'=>'crearConver',
+        'json'=>'crearConver '.json_encode($request->all()),
     'email'=>'maritojhefi'.uniqid().'@gmail.com',
     'password'=>'45678123',
     'address'=>'tomatitas',
@@ -93,9 +93,10 @@ Route::post('/pruebas/webhook/crearConver', function(Request $request)
 });
 Route::post('/pruebas/webhook/actualizarConver', function(Request $request)
 {
+    
     User::create([
         'name'=>'Marioooo',
-        'json'=>'actualizarConver',
+        'json'=>'actualizarConver '.json_encode($request->all()),
     'email'=>'maritojhefi'.uniqid().'@gmail.com',
     'password'=>'45678123',
     'address'=>'tomatitas',
