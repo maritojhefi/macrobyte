@@ -85,6 +85,8 @@ Route::post('/pruebas/webhook/actualizar', function(Request $request)
 });
 Route::post('/pruebas/webhook/crearConver', function(Request $request)
 {
+    $json=json_decode(json_encode($request->all()));
+    WhatsappAPIHelper::enviarTemplate('bienvenida',[],$json->message->from,'es');
     User::create([
         'name'=>'Marioooo',
         'json'=>'crearConver '.json_encode($request->all()),
