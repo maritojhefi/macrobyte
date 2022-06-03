@@ -46,7 +46,7 @@ Route::post('/pruebas/webhook/crear', function(Request $request)
     preg_match_all('!\d+!', $texto, $matches);
     if($json->message->from!='+59175122350')
     {
-        if(isset($matches))
+        if($matches)
         {
             foreach($matches[0] as $numero)
             {
