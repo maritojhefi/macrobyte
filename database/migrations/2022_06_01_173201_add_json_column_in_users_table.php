@@ -14,7 +14,7 @@ class AddJsonColumnInUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text('json');
+            $table->text('json')->nullable();
         });
 
        
