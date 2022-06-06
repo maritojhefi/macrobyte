@@ -12,7 +12,7 @@ class WhatsappAPIHelper
     {
         $cliente = new Client();
         $arrayParametros='';
-        if(isset($parametros))
+        if($parametros)
         {
             foreach($parametros as $parametro)
             {
