@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\User;
-useuse GuzzleHttp\Client;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Helpers\WhatsappAPIHelper;
 use Illuminate\Support\Facades\Route;
