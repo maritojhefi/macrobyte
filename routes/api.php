@@ -80,7 +80,7 @@ Route::post('/pruebas/webhook/crear', function (Request $request) {
         if ($json->message->from != $siConversacionExiste->usuario->telf) {
             if(!$siConversacionExiste->conversation_support)
             {
-                $devolucion = WhatsappAPIHelper::enviarTemplate('bienvenida', [], $siConversacionExiste->usuario->telf, 'es');
+                $devolucion = WhatsappAPIHelper::enviarTemplate('send_message', [], $siConversacionExiste->usuario->telf, 'en_US');
                 $siConversacionExiste->conversation_support=$devolucion->id;
                 $siConversacionExiste->save();
                 WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support,'Te estas conectando a un canal privado con un cliente, a partir de ahora estas interactuando con el');
@@ -89,7 +89,19 @@ Route::post('/pruebas/webhook/crear', function (Request $request) {
 
           
         } else {
-            WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_id, $texto);
+            switch ($texto) {
+                case 'cerrar_chat':
+                    WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support, 'Se finalizo el chat con el cliente, tu estado vuelve a estar disponible para nuevas consultas');   
+                    $siConversacionExiste->conversation_id=null;
+                    $siConversacionExiste->conversation_support=null;
+                    $siConversacionExiste->save();
+                    break;
+                
+                default:
+                    WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_id, $texto);
+                    break;
+            }
+            
         }
     } else {
         if ($json->message->from != '+59175122350') {
