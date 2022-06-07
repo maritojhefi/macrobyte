@@ -49,6 +49,7 @@ class WhatsappAPIHelper
         $devolucion = json_decode($respuesta->getBody()->getContents());
         //WhatsappAPIHelper::historialConversacion($devolucion->id);
         //dd($devolucion);
+        return $devolucion;
     }
 
     public static function historialConversacion(string $idConversacion)
