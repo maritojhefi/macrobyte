@@ -80,9 +80,10 @@ Route::post('/pruebas/webhook/crear', function (Request $request) {
         if ($json->message->from != $siConversacionExiste->usuario->telf) {
             if(!$siConversacionExiste->conversation_support)
             {
-                $devolucion = WhatsappAPIHelper::enviarTemplate('template_redireccion_propiedad', ['https://macrobyte.tech'], $siConversacionExiste->usuario->telf, 'es');
+                $devolucion = WhatsappAPIHelper::enviarTemplate('bienvenida', [], $siConversacionExiste->usuario->telf, 'es');
                 $siConversacionExiste->conversation_support=$devolucion->id;
                 $siConversacionExiste->save();
+                WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support,'Te estas conectando a un canal privado con un cliente, a partir de ahora estas interactuando con el');
             }
             WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support,$texto);
 
