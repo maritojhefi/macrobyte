@@ -75,7 +75,7 @@ Route::post('/pruebas/webhook/crear', function (Request $request) {
     $texto = $json->message->content->text;
 
     preg_match_all('!\d+!', $texto, $matches);
-    $siConversacionExiste = ColaWhatsapp::where('conversation_id', $json->conversation->id)->first();
+    $siConversacionExiste = ColaWhatsapp::where('conversation_id', $json->conversation->id)->orWhere('conversation_support', $json->conversation->id)->first();
     if ($siConversacionExiste) {
         if ($json->message->from != $siConversacionExiste->usuario->telf) {
             if(!$siConversacionExiste->conversation_support)
