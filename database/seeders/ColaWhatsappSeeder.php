@@ -22,7 +22,7 @@ class ColaWhatsappSeeder extends Seeder
         ]);
         ColaWhatsapp::create([
             'user_id'=>4,
-            'atendiendo'=>0,
+            'atendiendo'=>1,
            
         ]);
         
