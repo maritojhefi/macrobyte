@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ColaWhatsapp;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -57,5 +58,9 @@ class User extends Authenticatable
     public function tokens()
     {
         return $this->hasMany(Spotify_token::class);
+    }
+    public function conversacion()
+    {
+        return $this->hasOne(ColaWhatsapp::class);
     }
 }

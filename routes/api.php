@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Helpers\WhatsappAPIHelper;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Models\ColaWhatsapp;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,26 +39,106 @@ Route::post('/pruebas/webhook', function()
     
     ]);
 });
+// Route::post('/pruebas/webhook/crear', function(Request $request)
+// {
+//     $json=json_decode(json_encode($request->all()));
+//     $texto=$json->message->content->text;
+   
+//     preg_match_all('!\d+!', $texto, $matches);
+//     if($json->message->from!='+59175122350')
+//     {
+//         if(count($matches[0])>0)
+//         {
+//             foreach($matches[0] as $numero)
+//             {
+//                 WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,'Gracias por contactarnos! Ingresa aqui para ver la propiedad en nuestra tienda: https://isbast.com/tienda/'.$numero);
+//             }
+//         }
+//         else
+//         {
+//             WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,'No pudimos reconocer la propiedad, podrias ingresar manualmente el id?');
+//         }
+//     }
+    
+//     User::create([
+//         'name'=>'Marioooo',
+//         'json'=>'crear '.json_encode($request->all()),
+//     'email'=>'maritojhefi'.uniqid().'@gmail.com',
+//     'password'=>'45678123',
+//     'address'=>'tomatitas',
+//     'telf'=>'75140175',
+    
+//     ]);
+// });
+
 Route::post('/pruebas/webhook/crear', function(Request $request)
 {
     $json=json_decode(json_encode($request->all()));
     $texto=$json->message->content->text;
    
     preg_match_all('!\d+!', $texto, $matches);
-    if($json->message->from!='+59175122350')
+    $siConversacionExiste=ColaWhatsapp::where('conversation_id',$json->conversation->id)->first();
+    if($siConversacionExiste)
     {
-        if(count($matches[0])>0)
+        if($json->message->from!=$siConversacionExiste->usuario->telf)
         {
-            foreach($matches[0] as $numero)
-            {
-                WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,'Gracias por contactarnos! Ingresa aqui para ver la propiedad en nuestra tienda: https://isbast.com/tienda/'.$numero);
-            }
+            WhatsappAPIHelper::enviarTemplate('template_redireccion_propiedad',['https://macrobyte.tech'],$siConversacionExiste->usuario->telf,'es');
+
         }
         else
         {
-            WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,'No pudimos reconocer la propiedad, podrias ingresar manualmente el id?');
+            WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,'En este momento el equipo de soporte se encuentra ocupado, por favor intenta dentro de unos minutos, gracias por comprender');
+
         }
     }
+    else
+    {
+        if($json->message->from!='+59175122350')
+        {
+            if(count($matches[0])>0)
+            {
+                foreach($matches[0] as $numero)
+                {
+                    switch ($numero) {
+                        case '1':
+                            $usuarioSoporte = ColaWhatsapp::where('atendiendo',true)->where('conversation_id',null)->first();
+                            if($usuarioSoporte)
+                            {
+                               
+                                    $usuarioSoporte->conversation_id=$json->conversation->id;
+                                    $usuarioSoporte->save();
+                                    WhatsappAPIHelper::enviarTemplate('template_bienvenida_soporte',['Experto inmobiliario: '.$usuarioSoporte->usuario->name,$usuarioSoporte->usuario->name],$json->message->from,'es');
+                                   
+                                
+                            }
+                            else
+                            {
+                                WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,'En este momento el equipo de soporte se encuentra ocupado, por favor intenta dentro de unos minutos, gracias por comprender');
+                            }
+                            break;
+                         case '2':
+                            WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,'Gracias por contactarnos! Ingresa aqui para ver la propiedad en nuestra tienda: https://isbast.com/tienda/'.$numero);
+    
+                            break;
+                         case '3':
+                            WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,'Gracias por contactarnos! Ingresa aqui para ver la propiedad en nuestra tienda: https://isbast.com/tienda/'.$numero);
+    
+                            break;
+                        default:
+                        WhatsappAPIHelper::enviarMensajePersonalizado($json->conversation->id,'Estas buscando informacion de una propiedad? Encontramos una coincidencia con el id que nos brindaste: https://isbast.com/tienda/'.$numero);
+    
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                WhatsappAPIHelper::enviarTemplate('template_bienvenida_opciones',[],$json->message->from,'es');
+    
+            }
+        }
+    }
+    
     
     User::create([
         'name'=>'Marioooo',
@@ -69,7 +150,6 @@ Route::post('/pruebas/webhook/crear', function(Request $request)
     
     ]);
 });
-
 Route::post('/pruebas/webhook/actualizar', function(Request $request)
 {
     

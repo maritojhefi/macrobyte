@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Product::factory(10000)->create();
+        //Product::factory(10000)->create();
         $this->call(RolSeeder::class);
         $this->call(UserSeeder::class);
-
+        $this->call(ColaWhatsappSeeder::class);
     }
 }
