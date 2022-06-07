@@ -77,7 +77,7 @@ Route::post('/pruebas/webhook/crear', function (Request $request) {
     preg_match_all('!\d+!', $texto, $matches);
     $siConversacionExiste = ColaWhatsapp::where('conversation_id', $json->conversation->id)->orWhere('conversation_support', $json->conversation->id)->first();
     if ($siConversacionExiste) {
-        if ($json->message->from != $siConversacionExiste->usuario->telf) {
+        if ($json->message->from != $siConversacionExiste->usuario->telf) {//el mensaje viene del cliente y se reenvia a soporte
             if(!$siConversacionExiste->conversation_support)
             {
                 $devolucion = WhatsappAPIHelper::enviarTemplate('send_message', [], $siConversacionExiste->usuario->telf, 'en_US');
@@ -85,20 +85,21 @@ Route::post('/pruebas/webhook/crear', function (Request $request) {
                 $siConversacionExiste->save();
                 WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support,'Te estas conectando a un canal privado con un cliente, a partir de ahora estas interactuando con el');
             }
-            WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support,$texto);
+            WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support,'*(Cliente)*'.$texto);
 
           
-        } else {
+        } else {//el mensaje viene de soporte y se reenvia al cliente
             switch ($texto) {
                 case 'cerrar_chat':
-                    WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support, 'Se finalizo el chat con el cliente, tu estado vuelve a estar disponible para nuevas consultas');   
+                    WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support, 'Se finalizo el chat con el cliente, tu estado vuelve a estar disponible para nuevas consultas'); 
+                    WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_id, 'Se finalizo el chat con soporte, espero haya sido de ayuda y agrado, somos Isbast.');   
                     $siConversacionExiste->conversation_id=null;
                     $siConversacionExiste->conversation_support=null;
                     $siConversacionExiste->save();
                     break;
                 
                 default:
-                    WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_id, $texto);
+                    WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_id, '*(Soporte)*'.$texto);
                     break;
             }
             
@@ -189,6 +190,9 @@ Route::post('/pruebas/webhook/actualizarConver', function (Request $request) {
 });
 
 Route::get('/pruebas/webhook/json', function () {
+    $devolucion = WhatsappAPIHelper::enviarTemplate('send_message', [], '+59169887995', 'en_US');
+    WhatsappAPIHelper::enviarMensajePersonalizado( $devolucion->id,'Te estas conectando a un canal privado con un cliente, a partir de ahora estas interactuando con el');
+    dd($devolucion);
     $usuarioSoporte = ColaWhatsapp::where('atendiendo', true)->whereIn('conversation_id', [null,''])->first();
     if ($usuarioSoporte) {
         
