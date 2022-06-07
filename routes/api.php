@@ -85,7 +85,7 @@ Route::post('/pruebas/webhook/crear', function (Request $request) {
                 $siConversacionExiste->save();
                 WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support,'Te estas conectando a un canal privado con un cliente, a partir de ahora estas interactuando con el');
             }
-            WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support,'*(Cliente)*'.$texto);
+            WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_support,'*(Cliente)* '.$texto);
 
           
         } else {//el mensaje viene de soporte y se reenvia al cliente
@@ -99,7 +99,7 @@ Route::post('/pruebas/webhook/crear', function (Request $request) {
                     break;
                 
                 default:
-                    WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_id, '*(Soporte)*'.$texto);
+                    WhatsappAPIHelper::enviarMensajePersonalizado($siConversacionExiste->conversation_id, '*(Soporte)* '.$texto);
                     break;
             }
             
