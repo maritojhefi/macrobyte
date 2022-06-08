@@ -16,13 +16,13 @@ class ColaWhatsappSeeder extends Seeder
     {
         ColaWhatsapp::truncate();
         ColaWhatsapp::create([
-            'user_id'=>3,
-            'atendiendo'=>0,
+            'user_id'=>1,
+            'atendiendo'=>1,
            
         ]);
         ColaWhatsapp::create([
-            'user_id'=>4,
-            'atendiendo'=>0,
+            'user_id'=>3,
+            'atendiendo'=>1,
            
         ]);
         
