@@ -69,7 +69,9 @@ Route::post('/pruebas/webhook', function () {
 
 //     ]);
 // });
-
+Route::post('/pruebas/webhook/crear', function (Request $request) {
+    
+});
 Route::post('/pruebas/webhook/crear', function (Request $request) {
     $json = json_decode(json_encode($request->all()));
     $texto = $json->message->content->text;
