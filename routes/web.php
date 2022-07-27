@@ -71,6 +71,10 @@ Route::post('/producto/addtolist',  [App\Http\Controllers\ProductoController::cl
  Route::get('/cotizacion/crear', [App\Http\Controllers\CotizacionController::class, 'create'])->name('cotizacion.create');
  Route::get('/cotizacion', [App\Http\Controllers\CotizacionController::class, 'index'])->name('cotizacion.index');
  Route::get('/cotizar/vista',  [App\Http\Controllers\CotizacionController::class, 'vistaprevia'])->name('cotizacion.vista');
+ Route::get('/cotizar/alcaldia', function()
+ {
+    return view('cotizaciones.cotizacion-alcaldia');
+ });
 
  //roles
  Route::get('/rol',  [App\Http\Controllers\RolController::class, 'index'])->name('rol.index');
