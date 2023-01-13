@@ -74,7 +74,7 @@
                         <ul class="actions top-right">
                         </ul>
                         @if ($imagenActiva)
-                        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->mergeString(Storage::disk('assets')->get('delight_logo.jpg'),'.'.$tamanoImagen)->size($tamano)->generate($url))}}" alt="">
+                        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->mergeString(Storage::disk('assets')->get('mario.jpeg'),'.'.$tamanoImagen)->size($tamano)->generate($url))}}" alt="">
                         @else
                         <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size($tamano)->generate($url))}}" alt="">
 
