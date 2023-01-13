@@ -52,7 +52,7 @@
 
 					@include('partials.session-flash-status')
 					@include('partials.validation-error')
-					{{dd(env('APP_URL'))}}
+					
 				@yield('content')
 				</div>
 			
