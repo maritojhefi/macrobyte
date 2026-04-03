@@ -4,7 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Macrobyte</title>
+    <title>ASOCIACION "RADIO MOVIL 15 DE ABRIL"</title>
+	<meta name="description" content="ASOCIACION 'RADIO MOVIL 15 DE ABRIL'">
+	<meta name="keywords" content="ASOCIACION 'RADIO MOVIL 15 DE ABRIL'">
+	<meta name="author" content="ASOCIACION 'RADIO MOVIL 15 DE ABRIL'">
+	<meta name="robots" content="index, follow">
+	<meta name="googlebot" content="index, follow">
+	
 	<link rel="shortcut icon" href="{{asset('april/distri/images/logo.png')}}" />
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Fira+Sans:600" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('april/distri/css/style.css')}}">
@@ -91,8 +97,8 @@ cursor: default;
                 <div class="container">
                     <div class="hero-inner">
 						<div class="hero-copy">
-	                        <h1 class="hero-title mt-0">MACROBYTE</h1>
-	                        <p class="hero-paragraph"> Desarrollo web y redes informaticas.</p>
+	                        <h1 class="hero-title mt-0">ASOCIACION "RADIO MOVIL 15 DE ABRIL"</h1>
+	                        <p class="hero-paragraph"> Taxis para la ciudad de Tarija.</p>
 							<a class="button" href="{{route('login')}}"><label for="" style="color: white">Inicia Sesion</label> </a>
 						</div>
 						<div class="hero-illustration">
