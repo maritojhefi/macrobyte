@@ -18,7 +18,7 @@ use App\Http\Controllers\ProductoController;
 
 
 Route::get('/', function () {
-    return view('index');
+    return view('landing.index');
 })->name('inicio');
 Route::get('/google085c423aaa790337', function () {
     return view('google085c423aaa790337');
